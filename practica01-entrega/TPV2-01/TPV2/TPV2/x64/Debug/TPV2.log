@@ -42,5 +42,30 @@ C:\Users\pk\Desktop\Tpv2-piña\practica01-entrega\TPV2-01\TPV2\TPV2\src\sdlutils
   		C:\Users\pk\Desktop\Tpv2-piña\practica01-entrega\TPV2-01\TPV2\TPV2\src\game\Game.cpp(122,52):
   		vea la primera referencia a “SDLUtils::map_access_wrapper<SoundEffect>::at” en “Game::checkCollisions”
   
+  JSON.cpp
+  JSONValue.cpp
+  json_demo.cpp
+  main.cpp
+  SDLUtils.cpp
+  sdlutils_demo.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-entrega\TPV2-01\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+  (compilando archivo de origen "src/sdlutils/sdlutils_demo.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-entrega\TPV2-01\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-entrega\TPV2-01\TPV2\TPV2\src\sdlutils\SDLUtils.h(202,28):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Music>" que se está compilando
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-entrega\TPV2-01\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+          with
+          [
+              T=Music
+          ]
+  		C:\Users\pk\Desktop\Tpv2-piña\practica01-entrega\TPV2-01\TPV2\TPV2\src\sdlutils\sdlutils_demo.cpp(52,30):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<Music>::at” en “sdlutils_basic_demo”
+  
+  SoundEffect.cpp
+  Texture.cpp
+  Collisions.cpp
+  Vector2D.cpp
   Generando código...
   TPV2.vcxproj -> C:\Users\pk\Desktop\Tpv2-piña\practica01-entrega\TPV2-01\TPV2\bin\TPV2Debug.exe

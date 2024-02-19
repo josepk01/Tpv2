@@ -1,1 +1,273 @@
-﻿
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  DeAcceleration.cpp
+  FighterCtrl.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+  (compilando archivo de origen "src/components/FighterCtrl.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(201,34):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+          with
+          [
+              T=SoundEffect
+          ]
+  		C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\FighterCtrl.cpp(34,46):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<SoundEffect>::at” en “FighterCtrl::update”
+  
+  Follow.cpp
+  Gun.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Gun.cpp(48,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Gun.cpp(48,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Gun.cpp(61,51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Gun.cpp(61,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Gun.cpp(61,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Gun.cpp(61,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Gun.cpp(72,51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Gun.cpp(72,42): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+  (compilando archivo de origen "src/components/Gun.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(201,34):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+          with
+          [
+              T=SoundEffect
+          ]
+  		C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Gun.cpp(95,47):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<SoundEffect>::at” en “Gun::shoot”
+  
+  Health.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+  (compilando archivo de origen "src/components/Health.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(199,30):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+          with
+          [
+              T=Texture
+          ]
+  		C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Health.cpp(15,18):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<Texture>::at” en “Health::Health”
+  
+  Image.cpp
+  ImageWithFrames.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\ImageWithFrames.cpp(52,4): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\ImageWithFrames.cpp(51,72): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\ImageWithFrames.cpp(51,66): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\ImageWithFrames.cpp(51,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  ShowAtOpossiteSide.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\ShowAtOpossiteSide.cpp(27,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\ShowAtOpossiteSide.cpp(33,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  TowardsDestination.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\TowardsDestination.cpp(33,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\TowardsDestination.cpp(33,19): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Transform.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(33,14): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(32,71): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(32,56): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(32,41): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(35,14): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(34,71): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(34,56): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(34,41): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(37,14): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(36,71): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(36,56): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(36,41): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(39,14): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(38,71): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(38,56): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(38,41): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(52,64): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(52,48): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(52,34): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\components\Transform.cpp(52,31): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  AsteroidsUtils.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(61,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(61,25): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(63,17): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(62,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(125,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(125,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+  (compilando archivo de origen "src/game/AsteroidsUtils.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(199,30):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+          with
+          [
+              T=Texture
+          ]
+  		C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(85,37):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<Texture>::at” en “AsteroidsUtils::generateAsteroid”
+  
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244:         with
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244:         [
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244:             _Ty=int
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244:         ]
+  (compilando archivo de origen "src/game/AsteroidsUtils.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(81,6):
+  	Vea la referencia a la creación de una instancia de la función plantilla "T *ecs::Manager::addComponent<Transform,const Vector2D&,const Vector2D&,int,int,float>(ecs::entity_t,const Vector2D &,const Vector2D &,int &&,int &&,float &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+  
+  FighterUtils.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\FighterUtils.cpp(31,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\FighterUtils.cpp(30,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\FighterUtils.cpp(31,53): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\FighterUtils.cpp(31,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+  (compilando archivo de origen "src/game/FighterUtils.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(199,30):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+          with
+          [
+              T=Texture
+          ]
+  		C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\FighterUtils.cpp(44,28):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<Texture>::at” en “FighterUtils::create_fighter”
+  
+  Game.cpp
+  GameOverState.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\GameOverState.cpp(36,10): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\GameOverState.cpp(37,10): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\GameOverState.cpp(38,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\GameOverState.cpp(38,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+  (compilando archivo de origen "src/game/GameOverState.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(199,30):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+          with
+          [
+              T=Texture
+          ]
+  		C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\GameOverState.cpp(32,8):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<Texture>::at” en “GameOverState::enter”
+  
+  NewGameState.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\NewGameState.cpp(15,10): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\NewGameState.cpp(16,10): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\NewGameState.cpp(17,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\NewGameState.cpp(17,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+  (compilando archivo de origen "src/game/NewGameState.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(199,30):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+          with
+          [
+              T=Texture
+          ]
+  		C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\NewGameState.cpp(12,7):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<Texture>::at” en “NewGameState::NewGameState”
+  
+  NewRoundState.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\NewRoundState.cpp(17,10): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\NewRoundState.cpp(18,10): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\NewRoundState.cpp(19,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\NewRoundState.cpp(19,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+  (compilando archivo de origen "src/game/NewRoundState.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(199,30):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+          with
+          [
+              T=Texture
+          ]
+  		C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\NewRoundState.cpp(13,7):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<Texture>::at” en “NewRoundState::NewRoundState”
+  
+  PausedState.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\PausedState.cpp(12,10): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\PausedState.cpp(13,10): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\PausedState.cpp(14,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\PausedState.cpp(14,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+  (compilando archivo de origen "src/game/PausedState.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(199,30):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+          with
+          [
+              T=Texture
+          ]
+  		C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\PausedState.cpp(10,7):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<Texture>::at” en “PausedState::PausedState”
+  
+  RunningState.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\RunningState.cpp(113,8): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\RunningState.cpp(112,8): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+  (compilando archivo de origen "src/game/RunningState.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(201,34):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+          with
+          [
+              T=SoundEffect
+          ]
+  		C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\RunningState.cpp(121,52):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<SoundEffect>::at” en “RunningState::checkCollisions”
+  
+  JSON.cpp
+  SDLUtils.cpp
+  Generando código...
+  Compilando...
+  sdlutils_demo.cpp
+C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
+  (compilando archivo de origen "src/sdlutils/sdlutils_demo.cpp")
+  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(202,28):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Music>" que se está compilando
+  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+          with
+          [
+              T=Music
+          ]
+  		C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\sdlutils_demo.cpp(52,30):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<Music>::at” en “sdlutils_basic_demo”
+  
+  Texture.cpp
+  Collisions.cpp
+  Vector2D.cpp
+  Generando código...
+  TPV2.vcxproj -> C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\bin\TPV2Debug.exe

@@ -13,6 +13,7 @@
 #include "../utils/Vector2D.h"
 #include "../utils/Collisions.h"
 #include "AsteroidsUtils.h"
+#include "BlackHoleUtils.h"
 #include "FighterUtils.h"
 #include "GameOverState.h"
 #include "NewGameState.h"
@@ -46,14 +47,15 @@ void Game::init() {
 			"resources/config/asteroids.resources.json");
 
 	AsteroidsFacade *ast_facede = new AsteroidsUtils();
+	BlackHoleFacade* black_hole_facade = new BlackHoleUtils();
 	FighterFacade *fighter_facede = new FighterUtils();
 
 	fighter_facede->create_fighter();
 
 	paused_state_ = new PausedState();
-	runing_state_ = new RunningState(ast_facede, fighter_facede);
+	runing_state_ = new RunningState(ast_facede, black_hole_facade, fighter_facede);
 	newgame_state_ = new NewGameState(fighter_facede);
-	newround_state_ = new NewRoundState(ast_facede, fighter_facede);
+	newround_state_ = new NewRoundState(ast_facede, black_hole_facade, fighter_facede);
 	gameover_state_ = new GameOverState();
 
 	current_state_ = newgame_state_;

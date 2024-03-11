@@ -9,14 +9,16 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../utils/Collisions.h"
 #include "AsteroidsFacade.h"
+#include "BlackHoleFacade.h"
 #include "FighterFacade.h"
 
 #include "Game.h"
 
-RunningState::RunningState(AsteroidsFacade *ast_mngr,
+RunningState::RunningState(AsteroidsFacade *ast_mngr, BlackHoleFacade *holes_mngr,
 		FighterFacade *fighter_mngr) :
 		ihdlr(ih()), //
 		ast_mngr_(ast_mngr), //
+		holes_mngr(holes_mngr), //
 		fighter_mngr_(fighter_mngr), //
 		lastTimeGeneratedAsteroids_() {
 }
@@ -45,10 +47,14 @@ void RunningState::update() {
 
 	auto fighter = mngr->getHandler(ecs::hdlr::FIGHTER);
 	auto &asteroids = mngr->getEntities(ecs::grp::ASTEROIDS);
+	auto &blackHoles = mngr->getEntities(ecs::grp::BLACKHOLES);
 
 	// update
 	mngr->update(fighter);
 	for (auto a : asteroids) {
+		mngr->update(a);
+	}
+	for (auto a : blackHoles) {
 		mngr->update(a);
 	}
 
@@ -58,6 +64,9 @@ void RunningState::update() {
 	// render
 	sdlutils().clearRenderer();
 	for (auto a : asteroids) {
+		mngr->render(a);
+	}
+	for (auto a : blackHoles) {
 		mngr->render(a);
 	}
 	mngr->render(fighter);

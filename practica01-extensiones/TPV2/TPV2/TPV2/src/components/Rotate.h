@@ -2,8 +2,6 @@
 #include "../ecs/Component.h"
 class Transform;
 
-class Vector2D;
-
 class Rotate : public ecs::Component {
 public:
 	__CMPID_DECL__(ecs::cmp::ROTATE)

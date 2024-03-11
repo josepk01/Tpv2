@@ -45,11 +45,8 @@ void BlackHoleUtils::generateHole(const Vector2D& p, int g) {
 	auto mngr = Game::instance()->getMngr();
 
 	auto a = mngr->addEntity(ecs::grp::BLACKHOLES);
-	//mngr->addComponent<Rotate>(a, 10);
-
 	Vector2D v = Vector2D(0, 0);
-
 	mngr->addComponent<Transform>(a, p, v, 40, 40, 0.0f);
-
+	mngr->addComponent<Rotate>(a, 1);
 	mngr->addComponent<Image>(a, &sdlutils().images().at("black-hole"));
 }

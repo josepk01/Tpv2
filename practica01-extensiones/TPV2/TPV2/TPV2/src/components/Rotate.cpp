@@ -1,8 +1,7 @@
 #include "Rotate.h"
-
-#include <cmath>
-#include "../ecs/Entity.h"
 #include "../ecs/Manager.h"
+#include "../ecs/Entity.h"
+
 #include "../utils/Vector2D.h"
 #include "Transform.h"
 
@@ -17,10 +16,9 @@ Rotate::~Rotate() {
 
 void Rotate::initComponent() {
 	tr_ = mngr_->getComponent<Transform>(ent_);
-	assert(tr_ != nullptr);
+	//assert(tr_ != nullptr);
 }
 
 void Rotate::update() {
-	auto& vel = tr_->getVel();
-	vel = vel + Vector2D(0, -1).rotate(tr_->getRot()) * rotVel_;
+	tr_->setRot(tr_->getRot() + rotVel_);
 }

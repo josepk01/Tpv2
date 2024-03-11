@@ -126,3 +126,7 @@ void AsteroidsUtils::split_astroid(ecs::entity_t a) {
 		}
 	}
 }
+
+void AsteroidsUtils::teleport_asteroid(ecs::entity_t a) {
+	std::cout << "teleport";
+}

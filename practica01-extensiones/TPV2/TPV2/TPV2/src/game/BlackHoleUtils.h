@@ -12,7 +12,6 @@ public:
 
 	void create_black_holes(int n) override;
 	void remove_all_black_holes() override;
-	void teleport_astroid(entity_t a) override;
 private:
 	void generateHole(const Vector2D& p, int g);
 	RandomNumberGenerator& rand_;

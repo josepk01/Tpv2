@@ -89,6 +89,7 @@ void RunningState::checkCollisions() {
 	auto mngr = Game::instance()->getMngr();
 	auto fighter = mngr->getHandler(ecs::hdlr::FIGHTER);
 	auto &asteroids = mngr->getEntities(ecs::grp::ASTEROIDS);
+	auto &blackHoles = mngr->getEntities(ecs::grp::BLACKHOLES);
 	auto fighterTR = mngr->getComponent<Transform>(fighter);
 	auto fighterGUN = mngr->getComponent<Gun>(fighter);
 
@@ -133,8 +134,42 @@ void RunningState::checkCollisions() {
 			}
 		}
 
+		//asteroid with black-holes
+		for (auto i = 0u; i < blackHoles.size(); i++) {
+			auto b = blackHoles[i];
+			auto bTR = mngr->getComponent<Transform>(b);
+			if (Collisions::collidesWithRotation( //
+				bTR->getPos(), //
+				bTR->getWidth(), //
+				bTR->getHeight(), //
+				bTR->getRot(), //
+				aTR->getPos(), //
+				aTR->getWidth(), //
+				aTR->getHeight(), //
+				aTR->getRot())) {
+				ast_mngr_->teleport_asteroid(a);
+				continue;
+			}
+		}
 	}
 
+	// black-holes with fighter
+	for (auto i = 0u; i < blackHoles.size(); i++) {
+		auto b = blackHoles[i];
+		auto bTR = mngr->getComponent<Transform>(b);
+		if (Collisions::collidesWithRotation( //
+			bTR->getPos(), //
+			bTR->getWidth(), //
+			bTR->getHeight(), //
+			bTR->getRot(), //
+			fighterTR->getPos(), //
+			fighterTR->getWidth(), //
+			fighterTR->getHeight(), //
+			fighterTR->getRot())) {
+			onFigherDeath();
+			continue;
+		}
+	}
 }
 
 void RunningState::onFigherDeath() {

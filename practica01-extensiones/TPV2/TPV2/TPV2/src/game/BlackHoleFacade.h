@@ -11,7 +11,6 @@ public:
 	}
 	virtual void create_black_holes(int n) = 0;
 	virtual void remove_all_black_holes() = 0;
-	virtual void teleport_astroid(entity_t a) = 0;
 };
 
 

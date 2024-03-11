@@ -1,4 +1,5 @@
 #include "BlackHoleUtils.h"
+#include "../components/Rotate.h"
 #include "../components/Image.h"
 #include "../components/Transform.h"
 #include "../ecs/Manager.h"
@@ -38,15 +39,13 @@ void BlackHoleUtils::remove_all_black_holes() {
 	}
 	mngr->refresh();
 }
-void BlackHoleUtils::teleport_astroid(entity_t a) {
-
-}
 
 
 void BlackHoleUtils::generateHole(const Vector2D& p, int g) {
 	auto mngr = Game::instance()->getMngr();
 
 	auto a = mngr->addEntity(ecs::grp::BLACKHOLES);
+	//mngr->addComponent<Rotate>(a, 10);
 
 	Vector2D v = Vector2D(0, 0);
 

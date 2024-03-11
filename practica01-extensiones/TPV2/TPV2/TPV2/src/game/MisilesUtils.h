@@ -1,17 +1,25 @@
 #pragma once
+#include "MisilesFacade.h"
+#include "../components/Follow.h"
+#include "../components/Image.h"
+#include "../components/Transform.h"
 #include "../ecs/Manager.h"
 #include "../sdlutils/SDLUtils.h"
-#include "MisilesFacade.h"
+#include "Game.h"
 
-class MisilesUtils : public MisilesFacade {
+class Vector2D;
+class RandomNumberGenerator;
+
+class MissilesUtils : public MissilesFacade {
 public:
-    MisilesUtils();
-    virtual ~MisilesUtils();
-    void create_misil() override;
-    void remove_all_misiles() override;
+    MissilesUtils();
+    virtual ~MissilesUtils();
+
+    void add_missile() override;
 
 private:
-    RandomNumberGenerator rand_;
-    float width_, height_;
-    void generateMisil();
+    void generateMissile();
+    RandomNumberGenerator& rand_;
+    int width_;
+    int height_;
 };

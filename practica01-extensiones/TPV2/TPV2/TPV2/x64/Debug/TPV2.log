@@ -1,24 +1,36 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   MisilesUtils.cpp
-C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\MisilesUtils.h(2,10): error C1083: No se puede abrir el archivo incluir: '../': No such file or directory
-  (compilando archivo de origen "src/game/MisilesUtils.cpp")
-  
-  RunningState.cpp
-C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\RunningState.cpp(113,8): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\RunningState.cpp(112,8): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
-  (compilando archivo de origen "src/game/RunningState.cpp")
-  C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
-  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
-  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(201,34):
-  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
-  	C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
-  	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
+C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\MisilesUtils.cpp(26,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\MisilesUtils.cpp(26,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\MisilesUtils.cpp(30,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': unreferenced local variable
+  (compiling source file 'src/game/MisilesUtils.cpp')
+  C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(199,30):
+  	see reference to class template instantiation 'SDLUtils::map_access_wrapper<Texture>' being compiled
+  	C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
+  	while compiling class template member function 'T &SDLUtils::map_access_wrapper<T>::at(const std::string &)'
           with
           [
-              T=SoundEffect
+              T=Texture
           ]
-  		C:\Users\pk\Desktop\Tpv2-piña\practica01-extensiones\TPV2\TPV2\TPV2\src\game\RunningState.cpp(121,52):
-  		vea la primera referencia a “SDLUtils::map_access_wrapper<SoundEffect>::at” en “RunningState::checkCollisions”
+  		C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\MisilesUtils.cpp(37,30):
+  		see the first reference to 'SDLUtils::map_access_wrapper<Texture>::at' in 'MissilesUtils::generateMissile'
   
-  Generando código...
+C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244:         with
+C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244:         [
+C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244:             _Ty=int
+C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244:         ]
+  (compiling source file 'src/game/MisilesUtils.cpp')
+  C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\MisilesUtils.cpp(35,9):
+  	see reference to function template instantiation 'T *ecs::Manager::addComponent<Transform,Vector2D&,Vector2D&,int,int,float>(ecs::entity_t,Vector2D &,Vector2D &,int &&,int &&,float &&)' being compiled
+          with
+          [
+              T=Transform
+          ]
+  
+  TPV2.vcxproj -> C:\Users\pk\Desktop\Tpv2\practica01-extensiones\TPV2\TPV2\bin\TPV2Debug.exe

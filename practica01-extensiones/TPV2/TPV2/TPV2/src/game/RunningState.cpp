@@ -10,16 +10,21 @@
 #include "../utils/Collisions.h"
 #include "AsteroidsFacade.h"
 #include "FighterFacade.h"
+#include "MisilesFacade.h"
 
 #include "Game.h"
 
-RunningState::RunningState(AsteroidsFacade *ast_mngr,
-		FighterFacade *fighter_mngr) :
-		ihdlr(ih()), //
-		ast_mngr_(ast_mngr), //
-		fighter_mngr_(fighter_mngr), //
-		lastTimeGeneratedAsteroids_() {
+
+RunningState::RunningState(AsteroidsFacade* ast_mngr, FighterFacade* fighter_mngr, MissilesFacade* misile_mngr)
+	: ihdlr(ih()),
+	ast_mngr_(ast_mngr),
+	fighter_mngr_(fighter_mngr),
+	misile_mngr_(misile_mngr),
+	lastTimeGeneratedMissiles_(sdlutils().virtualTimer().currTime()),
+	missileGenerationInterval_(2000) { // 2000 milisegundos = 2 segundos
 }
+
+
 
 RunningState::~RunningState() {
 }
@@ -30,6 +35,7 @@ void RunningState::leave() {
 void RunningState::update() {
 
 	auto mngr = Game::instance()->getMngr();
+	auto currentTime = sdlutils().virtualTimer().currTime();
 
 	// check if fighter won
 	if (mngr->getEntities(ecs::grp::ASTEROIDS).size() == 0) {
@@ -42,13 +48,22 @@ void RunningState::update() {
 		Game::instance()->setState(Game::PAUSED);
 		return;
 	}
+	// Verificar si es tiempo de generar un nuevo misil
+	if (currentTime - lastTimeGeneratedMissiles_ >= missileGenerationInterval_) {
+		misile_mngr_->add_missile(); // Asegúrate de que esta función existe y está implementada correctamente
+		lastTimeGeneratedMissiles_ = currentTime;
+	}
 
 	auto fighter = mngr->getHandler(ecs::hdlr::FIGHTER);
 	auto &asteroids = mngr->getEntities(ecs::grp::ASTEROIDS);
+	auto& misile = mngr->getEntities(ecs::grp::MISILES);
 
 	// update
 	mngr->update(fighter);
 	for (auto a : asteroids) {
+		mngr->update(a);
+	}
+	for (auto a : misile) {
 		mngr->update(a);
 	}
 
@@ -80,6 +95,7 @@ void RunningState::checkCollisions() {
 	auto mngr = Game::instance()->getMngr();
 	auto fighter = mngr->getHandler(ecs::hdlr::FIGHTER);
 	auto &asteroids = mngr->getEntities(ecs::grp::ASTEROIDS);
+	auto &misile = mngr->getEntities(ecs::grp::MISILES);
 	auto fighterTR = mngr->getComponent<Transform>(fighter);
 	auto fighterGUN = mngr->getComponent<Gun>(fighter);
 

@@ -3,10 +3,10 @@
 
 using ecs::entity_t;
 
-class MisilesFacade {
+class MissilesFacade {
 public:
-    MisilesFacade();
-    virtual ~MisilesFacade();
-    virtual void create_misil() = 0;
-    virtual void remove_all_misiles() = 0;
+    MissilesFacade() {}
+    virtual ~MissilesFacade() {}
+
+    virtual void add_missile() = 0;
 };

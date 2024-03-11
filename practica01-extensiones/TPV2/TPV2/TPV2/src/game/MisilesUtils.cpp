@@ -1,61 +1,38 @@
-// MisilesUtils.cpp
 #include "MisilesUtils.h"
-#include "../components/Transform.h"
-#include "../components/Image.h"
-#include "../components/Follow.h"
-#include "Game.h"
 
-MisilesUtils::MisilesUtils() :
+MissilesUtils::MissilesUtils() :
     rand_(sdlutils().rand()), width_(sdlutils().width()), height_(sdlutils().height()) {
 }
 
-MisilesUtils::~MisilesUtils() {
+MissilesUtils::~MissilesUtils() {
 }
 
-void MisilesUtils::create_misil() {
-    // Lógica para añadir un misil
-    generateMisil();
+void MissilesUtils::add_missile() {
+    generateMissile();
 }
 
-void MisilesUtils::remove_all_misiles() {
+void MissilesUtils::generateMissile() {
     auto mngr = Game::instance()->getMngr();
-    for (auto e : mngr->getEntities(ecs::grp::MISILES)) {
-        mngr->setAlive(e, false);
+
+    int x, y;
+    int side = rand_.nextInt(0, 3); // Elegir una esquina aleatoriamente
+    switch (side) {
+    case 0: x = 0; y = 0; break; // Esquina superior izquierda
+    case 1: x = width_; y = 0; break; // Esquina superior derecha
+    case 2: x = 0; y = height_; break; // Esquina inferior izquierda
+    case 3: x = width_; y = height_; break; // Esquina inferior derecha
     }
-    mngr->refresh();
-}
 
-void MisilesUtils::generateMisil() {
-    auto mngr = Game::instance()->getMngr();
+    Vector2D pos(x, y);
     auto fighter = mngr->getHandler(ecs::hdlr::FIGHTER);
     auto fighterTR = mngr->getComponent<Transform>(fighter);
+    Vector2D dir = (fighterTR->getPos() - pos).normalize();
+    float speed = rand_.nextInt(1, 3); // Velocidad aleatoria entre 1 y 3
+    Vector2D vel = dir * speed;
 
-    // Esquinas de la pantalla
-    Vector2D corners[4] = {
-        Vector2D(0, 0), // Esquina superior izquierda
-        Vector2D(sdlutils().width(), 0), // Esquina superior derecha
-        Vector2D(0, sdlutils().height()), // Esquina inferior izquierda
-        Vector2D(sdlutils().width(), sdlutils().height()) // Esquina inferior derecha
-    };
+    auto missile = mngr->addEntity(ecs::grp::MISILES);
 
-    // Seleccionar una esquina aleatoriamente
-    Vector2D startPosition = corners[rand_.nextInt(0, 4)];
-
-    // Calcular vector de velocidad hacia el caza
-    Vector2D direction = (fighterTR->getPos() - startPosition).normalize();
-    float speedMagnitude = rand_.nextInt(1, 4); // Velocidad entre 1 y 3
-    Vector2D velocity = direction * speedMagnitude;
-
-    // Crear la entidad misil y añadirle componentes
-    auto misil = mngr->addEntity(ecs::grp::MISILES);
-    mngr->addComponent<Transform>(misil, startPosition, velocity, 10, 10, 0.0f);
-    mngr->addComponent<Image>(misil, &sdlutils().images().at("missile"));
-    auto misilTR = mngr->getComponent<Transform>(misil);
-    mngr->addComponent<Follow>(misil, fighterTR->getPos());
-
-    // Ajustar la rotación inicial del misil para que apunte hacia el caza
-    Vector2D reference(0, -1); // Vector de referencia para calcular la rotación
-    float angle = reference.angle(velocity);
-    misilTR->setRot(angle);
+    mngr->addComponent<Transform>(missile, pos, vel, 20, 50, Vector2D(0, -1).angle(vel));
+    mngr->addComponent<Follow>(missile, fighterTR->getPos());
+    mngr->addComponent<Image>(missile, &sdlutils().images().at("missile"));
 }
-

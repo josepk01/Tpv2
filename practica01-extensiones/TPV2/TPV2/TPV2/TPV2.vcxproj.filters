@@ -272,9 +272,6 @@
     <ClCompile Include="src\ecs\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\MisilesFacade.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\game\MisilesUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

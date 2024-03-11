@@ -1,25 +1,53 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\",
+  "WorkspaceRootPath": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesUtils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\MisilesUtils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesUtils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\MisilesUtils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\AsteroidsUtils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\AsteroidsUtils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\AsteroidsUtils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesFacade.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\MisilesFacade.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\RunningState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\RunningState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesFacade.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\RunningState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\RunningState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesUtils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\MisilesUtils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\resources\\config\\asteroids.resources.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TPV2\\resources\\config\\asteroids.resources.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\sdlutils\\SDLUtils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\sdlutils\\SDLUtils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\NewRoundState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\NewRoundState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\NewRoundState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\NewRoundState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\AsteroidsUtils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\AsteroidsUtils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesUtils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\MisilesUtils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\AsteroidsFacade.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\AsteroidsFacade.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesFacade.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{88C70043-1243-4D22-8F6E-63C6825AE2F8}|TPV2\\TPV2.vcxproj|solutionrelative:TPV2\\src\\game\\MisilesFacade.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -30,69 +58,163 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AsteroidsUtils.cpp",
-              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\AsteroidsUtils.cpp",
-              "RelativeDocumentMoniker": "TPV2\\src\\game\\AsteroidsUtils.cpp",
-              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\AsteroidsUtils.cpp",
-              "RelativeToolTip": "TPV2\\src\\game\\AsteroidsUtils.cpp",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABoAAAA0AAAA",
+              "DocumentIndex": 5,
+              "Title": "SDLUtils.cpp",
+              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\sdlutils\\SDLUtils.cpp",
+              "RelativeDocumentMoniker": "TPV2\\src\\sdlutils\\SDLUtils.cpp",
+              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\sdlutils\\SDLUtils.cpp",
+              "RelativeToolTip": "TPV2\\src\\sdlutils\\SDLUtils.cpp",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAmwB8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-26T17:28:56.264Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MisilesUtils.cpp",
-              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesUtils.cpp",
-              "RelativeDocumentMoniker": "TPV2\\src\\game\\MisilesUtils.cpp",
-              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesUtils.cpp",
-              "RelativeToolTip": "TPV2\\src\\game\\MisilesUtils.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-26T17:26:08.495Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MisilesUtils.h",
-              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesUtils.h",
-              "RelativeDocumentMoniker": "TPV2\\src\\game\\MisilesUtils.h",
-              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesUtils.h",
-              "RelativeToolTip": "TPV2\\src\\game\\MisilesUtils.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-02-26T17:25:53.588Z",
+              "WhenOpened": "2024-03-11T00:26:01.663Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "MisilesFacade.h",
-              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesFacade.h",
-              "RelativeDocumentMoniker": "TPV2\\src\\game\\MisilesFacade.h",
-              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesFacade.h",
-              "RelativeToolTip": "TPV2\\src\\game\\MisilesFacade.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "asteroids.resources.json",
+              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\resources\\config\\asteroids.resources.json",
+              "RelativeDocumentMoniker": "TPV2\\resources\\config\\asteroids.resources.json",
+              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\resources\\config\\asteroids.resources.json",
+              "RelativeToolTip": "TPV2\\resources\\config\\asteroids.resources.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-11T00:24:34.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "NewRoundState.h",
+              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\NewRoundState.h",
+              "RelativeDocumentMoniker": "TPV2\\src\\game\\NewRoundState.h",
+              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\NewRoundState.h",
+              "RelativeToolTip": "TPV2\\src\\game\\NewRoundState.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-02-26T17:25:03.685Z"
+              "WhenOpened": "2024-03-10T23:30:04.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NewRoundState.cpp",
+              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\NewRoundState.cpp",
+              "RelativeDocumentMoniker": "TPV2\\src\\game\\NewRoundState.cpp",
+              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\NewRoundState.cpp",
+              "RelativeToolTip": "TPV2\\src\\game\\NewRoundState.cpp",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAABAAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-10T23:22:48.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RunningState.cpp",
+              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\RunningState.cpp",
+              "RelativeDocumentMoniker": "TPV2\\src\\game\\RunningState.cpp",
+              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\RunningState.cpp",
+              "RelativeToolTip": "TPV2\\src\\game\\RunningState.cpp",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAGEAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-10T23:27:44.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RunningState.h",
+              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\RunningState.h",
+              "RelativeDocumentMoniker": "TPV2\\src\\game\\RunningState.h",
+              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\RunningState.h",
+              "RelativeToolTip": "TPV2\\src\\game\\RunningState.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-10T23:27:15.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AsteroidsUtils.cpp",
+              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\AsteroidsUtils.cpp",
+              "RelativeDocumentMoniker": "TPV2\\src\\game\\AsteroidsUtils.cpp",
+              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\AsteroidsUtils.cpp",
+              "RelativeToolTip": "TPV2\\src\\game\\AsteroidsUtils.cpp",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAAABAAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-10T23:15:38.221Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MisilesFacade.cpp",
-              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesFacade.cpp",
-              "RelativeDocumentMoniker": "TPV2\\src\\game\\MisilesFacade.cpp",
-              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2-pi\u00F1a\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesFacade.cpp",
-              "RelativeToolTip": "TPV2\\src\\game\\MisilesFacade.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "MisilesUtils.cpp",
+              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesUtils.cpp",
+              "RelativeDocumentMoniker": "TPV2\\src\\game\\MisilesUtils.cpp",
+              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesUtils.cpp",
+              "RelativeToolTip": "TPV2\\src\\game\\MisilesUtils.cpp",
+              "ViewState": "AQIAABMAAAAAAAAAAAAmwCQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-26T17:24:54.698Z"
+              "WhenOpened": "2024-03-10T23:15:22.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AsteroidsUtils.h",
+              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\AsteroidsUtils.h",
+              "RelativeDocumentMoniker": "TPV2\\src\\game\\AsteroidsUtils.h",
+              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\AsteroidsUtils.h",
+              "RelativeToolTip": "TPV2\\src\\game\\AsteroidsUtils.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-10T23:15:36.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MisilesUtils.h",
+              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesUtils.h",
+              "RelativeDocumentMoniker": "TPV2\\src\\game\\MisilesUtils.h",
+              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesUtils.h",
+              "RelativeToolTip": "TPV2\\src\\game\\MisilesUtils.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-10T23:15:31.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AsteroidsFacade.h",
+              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\AsteroidsFacade.h",
+              "RelativeDocumentMoniker": "TPV2\\src\\game\\AsteroidsFacade.h",
+              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\AsteroidsFacade.h",
+              "RelativeToolTip": "TPV2\\src\\game\\AsteroidsFacade.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-10T23:15:36.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MisilesFacade.h",
+              "DocumentMoniker": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesFacade.h",
+              "RelativeDocumentMoniker": "TPV2\\src\\game\\MisilesFacade.h",
+              "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\MisilesFacade.h",
+              "RelativeToolTip": "TPV2\\src\\game\\MisilesFacade.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-10T23:15:31.013Z",
+              "EditorCaption": ""
             }
           ]
         }

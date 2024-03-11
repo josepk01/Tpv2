@@ -21,7 +21,8 @@ RunningState::RunningState(AsteroidsFacade *ast_mngr, BlackHoleFacade *holes_mng
 		ast_mngr_(ast_mngr), //
 		holes_mngr(holes_mngr), //
 		fighter_mngr_(fighter_mngr), //
-		lastTimeGeneratedAsteroids_()
+		misile_mngr_(misile_mngr),
+		lastTimeGeneratedAsteroids_(),
 		lastTimeGeneratedMissiles_(sdlutils().virtualTimer().currTime()),
 		missileGenerationInterval_(15000) {
 }

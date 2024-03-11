@@ -62,8 +62,7 @@
               "RelativeToolTip": "TPV2\\src\\components\\Follow.cpp",
               "ViewState": "AQIAAAsAAAAAAAAAAAAUwCAAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-11T10:24:31.073Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-11T10:24:31.073Z"
             },
             {
               "$type": "Document",
@@ -75,8 +74,7 @@
               "RelativeToolTip": "TPV2\\src\\sdlutils\\SDLUtils.cpp",
               "ViewState": "AQIAAA4AAAAAAAAAAAAmwB8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-11T00:26:01.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-11T00:26:01.663Z"
             },
             {
               "$type": "Document",
@@ -88,8 +86,7 @@
               "RelativeToolTip": "TPV2\\src\\game\\NewRoundState.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-10T23:30:04.152Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T23:30:04.152Z"
             },
             {
               "$type": "Document",
@@ -101,8 +98,7 @@
               "RelativeToolTip": "TPV2\\src\\game\\NewRoundState.cpp",
               "ViewState": "AQIAAAEAAAAAAAAAAAAUwCIAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-10T23:22:48.027Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T23:22:48.027Z"
             },
             {
               "$type": "Document",
@@ -112,7 +108,7 @@
               "RelativeDocumentMoniker": "TPV2\\src\\game\\RunningState.cpp",
               "ToolTip": "C:\\Users\\pk\\Desktop\\Tpv2\\practica01-extensiones\\TPV2\\TPV2\\TPV2\\src\\game\\RunningState.cpp",
               "RelativeToolTip": "TPV2\\src\\game\\RunningState.cpp",
-              "ViewState": "AQIAABAAAAAAAAAAAAAAABcAAAAeAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABcAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-10T23:27:44.282Z",
               "EditorCaption": ""
@@ -127,8 +123,7 @@
               "RelativeToolTip": "TPV2\\src\\game\\RunningState.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-10T23:27:15.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T23:27:15.748Z"
             },
             {
               "$type": "Document",
@@ -140,8 +135,7 @@
               "RelativeToolTip": "TPV2\\src\\game\\MisilesUtils.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-10T23:15:22.019Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T23:15:22.019Z"
             },
             {
               "$type": "Document",
@@ -153,8 +147,7 @@
               "RelativeToolTip": "TPV2\\src\\game\\MisilesUtils.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-10T23:15:31.679Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T23:15:31.679Z"
             },
             {
               "$type": "Document",
@@ -166,8 +159,7 @@
               "RelativeToolTip": "TPV2\\src\\game\\AsteroidsFacade.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-10T23:15:36.165Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T23:15:36.165Z"
             },
             {
               "$type": "Document",
@@ -179,8 +171,7 @@
               "RelativeToolTip": "TPV2\\src\\game\\MisilesFacade.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-10T23:15:31.013Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T23:15:31.013Z"
             }
           ]
         }

@@ -1,20 +1,41 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  RunningState.cpp
-C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\RunningState.cpp(123,8): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\RunningState.cpp(122,8): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  AsteroidsUtils.cpp
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(61,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(61,25): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(63,17): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(62,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(125,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(125,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(137,25): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(137,19): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32): warning C4101: 'e': variable local sin referencia
-  (compilando archivo de origen "src/game/RunningState.cpp")
+  (compilando archivo de origen "src/game/AsteroidsUtils.cpp")
   C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(51,32):
   el contexto de creación de instancias de la plantilla (el más antiguo primero) es
-  	C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(201,34):
-  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+  	C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(199,30):
+  	Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
   	C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\sdlutils\SDLUtils.h(48,13):
   	al compilar la función del miembro clase plantilla "T &SDLUtils::map_access_wrapper<T>::at(const std::string &)"
           with
           [
-              T=SoundEffect
+              T=Texture
           ]
-  		C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\RunningState.cpp(131,52):
-  		vea la primera referencia a “SDLUtils::map_access_wrapper<SoundEffect>::at” en “RunningState::checkCollisions”
+  		C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(85,37):
+  		vea la primera referencia a “SDLUtils::map_access_wrapper<Texture>::at” en “AsteroidsUtils::generateAsteroid”
+  
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244:         with
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244:         [
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244:             _Ty=int
+C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40): warning C4244:         ]
+  (compilando archivo de origen "src/game/AsteroidsUtils.cpp")
+  C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\ecs\Manager.h(86,40):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\TPV2\src\game\AsteroidsUtils.cpp(81,6):
+  	Vea la referencia a la creación de una instancia de la función plantilla "T *ecs::Manager::addComponent<Transform,const Vector2D&,const Vector2D&,int,int,float>(ecs::entity_t,const Vector2D &,const Vector2D &,int &&,int &&,float &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
   
   TPV2.vcxproj -> C:\Users\alvel\Documents\githubbien\Tpv2\practica01-extensiones\TPV2\TPV2\bin\TPV2Debug.exe

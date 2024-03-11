@@ -177,10 +177,13 @@
     <ClInclude Include="src\ecs\Manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\MisilesFacade.h">
+    <ClInclude Include="src\game\BlackHoleUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\MisilesUtils.h">
+    <ClInclude Include="src\game\BlackHoleFacade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Rotate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -272,7 +275,10 @@
     <ClCompile Include="src\ecs\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\MisilesUtils.cpp">
+    <ClCompile Include="src\game\BlackHoleUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Rotate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

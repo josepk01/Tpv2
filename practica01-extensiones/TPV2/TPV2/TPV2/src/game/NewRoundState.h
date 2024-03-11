@@ -9,12 +9,16 @@ class Texture;
 class InputHandler;
 
 class AsteroidsFacade;
-class FighterFacade; 
+
 class MissilesFacade;
+
+class BlackHoleFacade;
+class FighterFacade;
 
 class NewRoundState: public GameState {
 public:
-	NewRoundState(AsteroidsFacade *ast_mngr, FighterFacade *fighter_mngr, MissilesFacade *misile_mngr);
+	NewRoundState(AsteroidsFacade *ast_mngr, BlackHoleFacade* holes_mngr, FighterFacade *fighter_mngr, MissilesFacade* misile_mngr);
+
 	virtual ~NewRoundState();
 	void enter() override;
 	void leave() override;
@@ -25,6 +29,7 @@ private:
 	SDL_Rect dest_;
 	InputHandler &ihdlr;
 	AsteroidsFacade *ast_mngr_;
+	BlackHoleFacade* holes_mngr;
 	FighterFacade *fighter_mngr_;
 	MissilesFacade *misile_mngr_;
 

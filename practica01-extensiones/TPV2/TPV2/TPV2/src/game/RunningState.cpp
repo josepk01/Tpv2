@@ -9,21 +9,22 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../utils/Collisions.h"
 #include "AsteroidsFacade.h"
+#include "BlackHoleFacade.h"
 #include "FighterFacade.h"
 #include "MisilesFacade.h"
 
 #include "Game.h"
 
 
-RunningState::RunningState(AsteroidsFacade* ast_mngr, FighterFacade* fighter_mngr, MissilesFacade* misile_mngr)
-	: ihdlr(ih()),
-	ast_mngr_(ast_mngr),
-	fighter_mngr_(fighter_mngr),
-	misile_mngr_(misile_mngr),
-	lastTimeGeneratedMissiles_(sdlutils().virtualTimer().currTime()),
-	missileGenerationInterval_(15000) { 
+RunningState::RunningState(AsteroidsFacade *ast_mngr, BlackHoleFacade *holes_mngr,FighterFacade *fighter_mngr, MissilesFacade *misile_mngr) :
+		ihdlr(ih()), //
+		ast_mngr_(ast_mngr), //
+		holes_mngr(holes_mngr), //
+		fighter_mngr_(fighter_mngr), //
+		lastTimeGeneratedAsteroids_()
+		lastTimeGeneratedMissiles_(sdlutils().virtualTimer().currTime()),
+		missileGenerationInterval_(15000) {
 }
-
 
 
 RunningState::~RunningState() {
@@ -57,13 +58,18 @@ void RunningState::update() {
 	auto fighter = mngr->getHandler(ecs::hdlr::FIGHTER);
 	auto &asteroids = mngr->getEntities(ecs::grp::ASTEROIDS);
 	auto& misile = mngr->getEntities(ecs::grp::MISILES);
+	auto &blackHoles = mngr->getEntities(ecs::grp::BLACKHOLES);
 
 	// update
 	mngr->update(fighter);
 	for (auto a : asteroids) {
 		mngr->update(a);
 	}
+
 	for (auto a : misile) {
+		mngr->update(a);
+	}
+	for (auto a : blackHoles) {
 		mngr->update(a);
 	}
 
@@ -75,9 +81,14 @@ void RunningState::update() {
 	for (auto a : asteroids) {
 		mngr->render(a);
 	}
+
 	for (auto a : misile) {
 		mngr->render(a);
 	}
+	for (auto a : blackHoles) {
+		mngr->render(a);
+	}
+
 	mngr->render(fighter);
 	sdlutils().presentRenderer();
 
@@ -99,6 +110,7 @@ void RunningState::checkCollisions() {
 	auto fighter = mngr->getHandler(ecs::hdlr::FIGHTER);
 	auto &asteroids = mngr->getEntities(ecs::grp::ASTEROIDS);
 	auto &misile = mngr->getEntities(ecs::grp::MISILES);
+	auto &blackHoles = mngr->getEntities(ecs::grp::BLACKHOLES);
 	auto fighterTR = mngr->getComponent<Transform>(fighter);
 	auto fighterGUN = mngr->getComponent<Gun>(fighter);
 
@@ -143,6 +155,23 @@ void RunningState::checkCollisions() {
 			}
 		}
 
+		//asteroid with black-holes
+		for (auto i = 0u; i < blackHoles.size(); i++) {
+			auto b = blackHoles[i];
+			auto bTR = mngr->getComponent<Transform>(b);
+			if (Collisions::collidesWithRotation( //
+				bTR->getPos(), //
+				bTR->getWidth(), //
+				bTR->getHeight(), //
+				bTR->getRot(), //
+				aTR->getPos(), //
+				aTR->getWidth(), //
+				aTR->getHeight(), //
+				aTR->getRot())) {
+				ast_mngr_->teleport_asteroid(a);
+				continue;
+			}
+		}
 	}
 	for (auto m : misile) {
 		if (!mngr->isAlive(m)) continue;
@@ -181,6 +210,23 @@ void RunningState::checkCollisions() {
 	}
 
 
+	// black-holes with fighter
+	for (auto i = 0u; i < blackHoles.size(); i++) {
+		auto b = blackHoles[i];
+		auto bTR = mngr->getComponent<Transform>(b);
+		if (Collisions::collidesWithRotation( //
+			bTR->getPos(), //
+			bTR->getWidth(), //
+			bTR->getHeight(), //
+			bTR->getRot(), //
+			fighterTR->getPos(), //
+			fighterTR->getWidth(), //
+			fighterTR->getHeight(), //
+			fighterTR->getRot())) {
+			onFigherDeath();
+			continue;
+		}
+	}
 }
 
 void RunningState::onFigherDeath() {

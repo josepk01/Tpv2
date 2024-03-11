@@ -7,6 +7,14 @@ MissilesUtils::MissilesUtils() :
 MissilesUtils::~MissilesUtils() {
 }
 
+void MissilesUtils::remove_all_missiles() {
+    auto mngr = Game::instance()->getMngr();
+    for (auto e : mngr->getEntities(ecs::grp::MISILES)) {
+        mngr->setAlive(e, false);
+    }
+    mngr->refresh();
+}
+
 void MissilesUtils::add_missile() {
     generateMissile();
 }

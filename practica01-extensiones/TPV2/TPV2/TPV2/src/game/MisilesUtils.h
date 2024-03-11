@@ -15,6 +15,8 @@ public:
     MissilesUtils();
     virtual ~MissilesUtils();
 
+    void remove_all_missiles() override;
+
     void add_missile() override;
 
 private:

@@ -21,7 +21,7 @@ RunningState::RunningState(AsteroidsFacade* ast_mngr, FighterFacade* fighter_mng
 	fighter_mngr_(fighter_mngr),
 	misile_mngr_(misile_mngr),
 	lastTimeGeneratedMissiles_(sdlutils().virtualTimer().currTime()),
-	missileGenerationInterval_(2000) { // 2000 milisegundos = 2 segundos
+	missileGenerationInterval_(15000) { 
 }
 
 
@@ -73,6 +73,9 @@ void RunningState::update() {
 	// render
 	sdlutils().clearRenderer();
 	for (auto a : asteroids) {
+		mngr->render(a);
+	}
+	for (auto a : misile) {
 		mngr->render(a);
 	}
 	mngr->render(fighter);
@@ -141,6 +144,42 @@ void RunningState::checkCollisions() {
 		}
 
 	}
+	for (auto m : misile) {
+		if (!mngr->isAlive(m)) continue;
+		auto mTR = mngr->getComponent<Transform>(m);
+
+		// Misil con caza
+		if (Collisions::collidesWithRotation(
+			mTR->getPos(), mTR->getWidth(), mTR->getHeight(), mTR->getRot(),
+			fighterTR->getPos(), fighterTR->getWidth(), fighterTR->getHeight(), fighterTR->getRot())) {
+			onFigherDeath();
+			mngr->setAlive(m, false); // Eliminar misil
+			return;
+		}
+	}
+	for (Gun::Bullet& b : *fighterGUN) {
+		if (b.used) {
+			for (auto m : misile) {
+				auto mTR = mngr->getComponent<Transform>(m);
+				if (Collisions::collidesWithRotation(
+					b.pos, b.width, b.height, b.rot,
+					mTR->getPos(), mTR->getWidth(), mTR->getHeight(), mTR->getRot())) {
+					// Bala y misil colisionan, ambos se eliminan
+					mngr->setAlive(m, false);
+					b.used = false;
+				}
+			}
+		}
+	}
+	for (auto m : misile) {
+		auto mTR = mngr->getComponent<Transform>(m);
+		// Suponiendo que la ventana es width_ x height_
+		if (mTR->getPos().getX() < 0 || mTR->getPos().getX() > sdlutils().width() ||
+			mTR->getPos().getY() < 0 || mTR->getPos().getY() > sdlutils().height()) {
+			mngr->setAlive(m, false); // Eliminar misil
+		}
+	}
+
 
 }
 

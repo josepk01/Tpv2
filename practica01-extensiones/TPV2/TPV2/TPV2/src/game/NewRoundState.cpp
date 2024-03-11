@@ -32,6 +32,7 @@ void NewRoundState::update() {
 	if (ihdlr.keyDownEvent() && ihdlr.isKeyDown(SDL_SCANCODE_RETURN)) {
 		fighter_mngr_->reset_fighter();
 		ast_mngr_->remove_all_asteroids();
+		misile_mngr_->remove_all_missiles();
 		ast_mngr_->create_asteroids(10);
 		Game::instance()->setState(Game::RUNNING);
 	}

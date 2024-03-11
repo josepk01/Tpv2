@@ -23,10 +23,23 @@ void Follow::initComponent() {
 }
 
 void Follow::update() {
-	auto &pos = tr_->getPos();
-	auto &vel = tr_->getVel();
+    auto& pos = tr_->getPos();
+    auto& vel = tr_->getVel();
 
-	auto v = to_follow_ - pos;
+    // Obtiene la posición actual del caza para seguir
+    Vector2D targetPos = to_follow_;
 
-	vel = vel.rotate(vel.angle(v) > 0 ? 1.0f : -1.0f);
+    // Calcula el vector de dirección hacia el caza
+    Vector2D dir = (targetPos - pos).normalize();
+
+    // Actualiza la velocidad del misil hacia el caza
+    // Asegúrate de que la magnitud de la velocidad se mantiene
+    vel = dir * vel.magnitude();
+
+    // Actualiza la rotación del misil para que apunte hacia el caza
+    // Calcula el ángulo entre el vector de dirección del misil (0, -1) como referencia y el vector de velocidad actual
+    // Se asume que el misil "mira" hacia arriba con respecto a su sprite original
+    float angle = Vector2D(0, -1).angle(vel);
+    tr_->setRot(angle);
 }
+

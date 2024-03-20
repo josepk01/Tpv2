@@ -68,6 +68,18 @@ public:
 	virtual void render() {
 	}
 
+	// Componente específico de PacMan
+	struct PacManComponent {
+		int lives;
+		bool isImmune;
+	};
+
+	// Componente específico de las frutas
+	struct FruitComponent {
+		bool isMiraculous;
+		float miraculousTime;
+	};
+
 protected:
 	// as mentions above, when using systems these fields are not
 	// really needed, but we keep them for now from the same reason that

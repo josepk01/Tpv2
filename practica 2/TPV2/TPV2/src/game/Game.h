@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "../ecs/ecs.h"
+#include "../../States.h"
 
 class Game {
 public:
@@ -12,6 +13,7 @@ public:
 	virtual ~Game();
 	void init();
 	void start();
+	void changeState(GameState* newState);
 private:
 	ecs::Manager *mngr_;
 	ecs::System *pacmanSys_;
@@ -19,6 +21,6 @@ private:
 	ecs::System *startsSys_;
 	ecs::System *renderSys_;
 	ecs::System *collisionSys_;
-
+	GameState* currentState;
 };
 

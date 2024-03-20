@@ -84,3 +84,10 @@ void Game::start() {
 
 }
 
+void Game::changeState(GameState* newState) {
+	if (currentState != nullptr) {
+		currentState->exit();
+	}
+	currentState = newState;
+	currentState->enter();
+}

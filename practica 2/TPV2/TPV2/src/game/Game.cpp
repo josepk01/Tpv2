@@ -8,7 +8,7 @@
 //#include "../systems/CollisionsSystem.h"
 #include "../systems/GameCtrlSystem.h"
 #include "../systems/PacManSystem.h"
-//#include "../systems/RenderSystem.h"
+#include "../systems/RenderSystem.h"
 //#include "../systems/StarsSystem.h"
 #include "../utils/Vector2D.h"
 #include "../utils/Collisions.h"
@@ -42,7 +42,7 @@ void Game::init() {
 	pacmanSys_ = mngr_->addSystem<PacManSystem>();
 	//startsSys_ = mngr_->addSystem<StarsSystem>();
 	gameCtrlSys_ = mngr_->addSystem<GameCtrlSystem>();
-	//renderSys_ = mngr_->addSystem<RenderSystem>();
+	renderSys_ = mngr_->addSystem<RenderSystem>();
 	//collisionSys_ = mngr_->addSystem<CollisionsSystem>();
 }
 
@@ -73,7 +73,7 @@ void Game::start() {
 		mngr_->refresh();
 
 		sdlutils().clearRenderer();
-		//renderSys_->update();
+		renderSys_->update();
 		sdlutils().presentRenderer();
 
 		Uint32 frameTime = sdlutils().currRealTime() - startTime;

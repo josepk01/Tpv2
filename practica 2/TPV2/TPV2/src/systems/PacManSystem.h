@@ -6,6 +6,8 @@
 
 struct Transform;
 
+const float SPEED = 1.0f;
+
 class PacManSystem: public ecs::System {
 public:
 

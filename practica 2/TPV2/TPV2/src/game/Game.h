@@ -9,18 +9,29 @@
 
 class Game {
 public:
-	Game();
-	virtual ~Game();
-	void init();
-	void start();
-	void changeState(GameState* newState);
-private:
-	ecs::Manager *mngr_;
-	ecs::System *pacmanSys_;
-	ecs::System *gameCtrlSys_;
-	ecs::System *startsSys_;
-	ecs::System *renderSys_;
-	ecs::System *collisionSys_;
-	GameState* currentState;
-};
+    static Game& instance() {
+        static Game instance; // Instancia única
+        return instance;
+    }
 
+    virtual ~Game();
+
+    void init();
+    void start();
+    void changeState(GameState* newState);
+
+    // Elimina la capacidad de copiar o asignar la instancia
+    Game(Game const&) = delete;
+    void operator=(Game const&) = delete;
+
+private:
+    Game(); // Constructor privado
+
+    ecs::Manager* mngr_;
+    ecs::System* pacmanSys_;
+    ecs::System* gameCtrlSys_;
+    ecs::System* startsSys_;
+    ecs::System* renderSys_;
+    ecs::System* collisionSys_;
+    GameState* currentState;
+};

@@ -48,6 +48,14 @@ public:
 				delete c;
 	}
 
+	inline void updateComponents() {
+		auto n = currCmps_.size();
+		for (auto i = 0u; i < n; i++) {
+			currCmps_[i]->update();
+		}
+		//std::cout << "Entidad Update" << std::endl;
+	}
+
 
 private:
 

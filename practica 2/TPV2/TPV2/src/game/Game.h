@@ -13,6 +13,9 @@ public:
         static Game instance; // Instancia única
         return instance;
     }
+    inline ecs::Manager* getMngr() {
+        return mngr_;
+    }
 
     virtual ~Game();
 
@@ -33,5 +36,6 @@ private:
     ecs::System* startsSys_;
     ecs::System* renderSys_;
     ecs::System* collisionSys_;
+    ecs::System* ghostSys_;
     GameState* currentState;
 };

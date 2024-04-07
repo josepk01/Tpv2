@@ -25,6 +25,7 @@ void RenderSystem::update() {
 	drawMsgs();
 	//drawPoints();
 	drawPacMan();
+	drawGhosts();
 }
 
 void RenderSystem::drawPoints() {
@@ -36,6 +37,7 @@ void RenderSystem::drawPoints() {
 		draw(tr, tex);
 	}
 }
+
 void RenderSystem::drawPacMan() {
 	auto e = mngr_->getHandler(ecs::hdlr::PACMAN);
 	if (e == nullptr) return; // Si PacMan no está inicializado, no hacemos nada.
@@ -47,6 +49,16 @@ void RenderSystem::drawPacMan() {
 	}
 }
 
+void RenderSystem::drawGhosts() {
+
+	for(auto e : mngr_->getEntities(ecs::grp::GHOSTS)) {
+		auto tr = mngr_->getComponent<Transform>(e);
+		auto imgFrames = mngr_->getComponent<ImageWithFrames>(e); // Usar ImageWithFrames
+		if (tr != nullptr && imgFrames != nullptr) {
+			imgFrames->render(); // Renderizar la animación actual.
+		}
+	}
+}
 
 
 void RenderSystem::drawMsgs() {

@@ -28,7 +28,6 @@ void PacManSystem::initSystem() {
 	auto x = (sdlutils().width() + s) / 2.0f;
 	auto y = (sdlutils().height() + s) / 2.0f;
 	pmTR_->init(Vector2D(x, y), Vector2D(), s, s, 0.0f);
-	mngr_->addComponent<Image>(pacman, &sdlutils().images().at("pacman"));
 	// Inicializar componente de animación con la primera animación (normal)
 	Texture* pacmanTexture = &sdlutils().images().at("pacman_sprites");
 	pmImage_ = mngr_->addComponent<ImageWithFrames>(pacman,

@@ -18,6 +18,7 @@ public:
 private:
 	void drawPoints();
 	void drawPacMan();
+	void drawGhosts();
 	void drawMsgs();
 	void draw(Transform *tr, Texture *tex);
 };

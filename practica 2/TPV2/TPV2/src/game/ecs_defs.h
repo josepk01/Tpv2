@@ -9,13 +9,15 @@
 	IMAGE, \
 	STARMOTION, \
 	POINTS,\
-	IMAGEWITHFRAMES
+	IMAGEWITHFRAMES, \
+	RANDOMFOLLOW
 
 // Groups list - must have at least one element
 //
 #define _GRPS_LIST_ \
 	POINTS, \
-	CEREZAS
+	CEREZAS, \
+	GHOSTS
 
 // Handlers list - must have at least one element
 //
@@ -30,5 +32,6 @@
 	RENDER, \
 	GAMECTRL, \
 	COLLISIONS,\
-	FRUITS
+	FRUITS, \
+	GHOSTS
 

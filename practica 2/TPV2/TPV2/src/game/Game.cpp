@@ -9,6 +9,7 @@
 #include "../systems/GameCtrlSystem.h"
 #include "../systems/PacManSystem.h"
 #include "../systems/RenderSystem.h"
+#include "../systems/GhostSystem.h"
 
 #include "../utils/Vector2D.h"
 #include "../utils/Collisions.h"
@@ -17,7 +18,7 @@ using ecs::Manager;
 
 Game::Game() : mngr_(nullptr), pacmanSys_(nullptr), gameCtrlSys_(nullptr),
 startsSys_(nullptr), renderSys_(nullptr), collisionSys_(nullptr),
-foodSys_(nullptr)
+foodSys_(nullptr), ghostSys_(nullptr)
 {
 
 }
@@ -40,6 +41,7 @@ void Game::init() {
 	foodSys_ = mngr_->addSystem<FoodSystem>();
 	gameCtrlSys_ = mngr_->addSystem<GameCtrlSystem>();
 	renderSys_ = mngr_->addSystem<RenderSystem>();
+	ghostSys_ = mngr_->addSystem<GhostSystem>();
 	//collisionSys_ = mngr_->addSystem<CollisionsSystem>();
 }
 
@@ -65,6 +67,7 @@ void Game::start() {
 		pacmanSys_->update();
 		foodSys_->update();
 		gameCtrlSys_->update();
+		ghostSys_->update();
 		//collisionSys_->update();
 
 		mngr_->refresh();

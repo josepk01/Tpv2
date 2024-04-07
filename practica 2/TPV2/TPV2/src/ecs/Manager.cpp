@@ -56,6 +56,11 @@ void Manager::refresh() {
 								return true;
 							}
 						}), groupEntities.end());
+		// update Entity components
+		for (auto& ents : entsByGroup_) {
+			for (auto e : ents)
+				e->updateComponents();
+		}
 	}
 
 }

@@ -52,6 +52,9 @@
     <Filter Include="Header Files\components">
       <UniqueIdentifier>{e9587e52-fad6-443a-8f48-3afa64e2d45e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\components">
+      <UniqueIdentifier>{78d3e312-1bf9-43d7-be0d-a5651f4d4e6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\json\JSONValue.h">
@@ -168,6 +171,12 @@
     <ClInclude Include="src\components\Image.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
+    <ClInclude Include="src\systems\FoodSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\ImageWithFrames.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\json\JSONValue.cpp">
@@ -214,6 +223,12 @@
     </ClCompile>
     <ClCompile Include="src\ecs\Manager.cpp">
       <Filter>Source Files\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\FoodSystem.cpp">
+      <Filter>Source Files\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\ImageWithFrames.cpp">
+      <Filter>Source Files\components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -8,7 +8,8 @@
 	TRANSFORM, \
 	IMAGE, \
 	STARMOTION, \
-	POINTS
+	POINTS,\
+	IMAGEWITHFRAMES
 
 // Groups list - must have at least one element
 //
@@ -28,5 +29,6 @@
 	PACMAN, \
 	RENDER, \
 	GAMECTRL, \
-	COLLISIONS
+	COLLISIONS,\
+	FRUITS
 

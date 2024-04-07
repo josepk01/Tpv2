@@ -7,6 +7,7 @@
 #include "../ecs/Manager.h"
 #include "../sdlutils/InputHandler.h"
 #include "../sdlutils/SDLUtils.h"
+#include "../components/ImageWithFrames.h"
 
 PacManSystem::PacManSystem() :
 		pmTR_(nullptr) {
@@ -28,6 +29,21 @@ void PacManSystem::initSystem() {
 	auto y = (sdlutils().height() + s) / 2.0f;
 	pmTR_->init(Vector2D(x, y), Vector2D(), s, s, 0.0f);
 	mngr_->addComponent<Image>(pacman, &sdlutils().images().at("pacman"));
+	Texture* pacmanTexture = &sdlutils().images().at("pacman_sprites");
+	auto pacmanNormal = mngr_->addEntity();
+
+	int frameSize = 32; // Asume que cada frame es de 32x32 píxeles
+	mngr_->addComponent<ImageWithFrames>(
+		pacmanNormal,
+		pacmanTexture,
+		4, 1, // número de columnas y filas en la animación
+		0, 0, // x e y inicial en la imagen
+		frameSize, frameSize, // ancho y alto del frame
+		0, 0, // columna y fila inicial del frame de inicio
+		4, 1 // número total de columnas y filas
+	);
+
+
 }
 
 void PacManSystem::update() {

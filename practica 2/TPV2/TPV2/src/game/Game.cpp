@@ -9,19 +9,16 @@
 #include "../systems/GameCtrlSystem.h"
 #include "../systems/PacManSystem.h"
 #include "../systems/RenderSystem.h"
-//#include "../systems/StarsSystem.h"
+
 #include "../utils/Vector2D.h"
 #include "../utils/Collisions.h"
 
 using ecs::Manager;
 
-Game::Game() :
-		mngr_(), //
-		pacmanSys_(), //
-		gameCtrlSys_(), //
-		startsSys_(), //
-		renderSys_(), //
-		collisionSys_() {
+Game::Game() : mngr_(nullptr), pacmanSys_(nullptr), gameCtrlSys_(nullptr),
+startsSys_(nullptr), renderSys_(nullptr), collisionSys_(nullptr),
+foodSys_(nullptr)
+{
 
 }
 
@@ -40,7 +37,7 @@ void Game::init() {
 
 	// add the systems
 	pacmanSys_ = mngr_->addSystem<PacManSystem>();
-	//startsSys_ = mngr_->addSystem<StarsSystem>();
+	foodSys_ = mngr_->addSystem<FoodSystem>();
 	gameCtrlSys_ = mngr_->addSystem<GameCtrlSystem>();
 	renderSys_ = mngr_->addSystem<RenderSystem>();
 	//collisionSys_ = mngr_->addSystem<CollisionsSystem>();
@@ -66,7 +63,7 @@ void Game::start() {
 
 
 		pacmanSys_->update();
-		//startsSys_->update();
+		foodSys_->update();
 		gameCtrlSys_->update();
 		//collisionSys_->update();
 

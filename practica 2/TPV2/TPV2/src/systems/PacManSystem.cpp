@@ -29,21 +29,22 @@ void PacManSystem::initSystem() {
 	auto y = (sdlutils().height() + s) / 2.0f;
 	pmTR_->init(Vector2D(x, y), Vector2D(), s, s, 0.0f);
 	mngr_->addComponent<Image>(pacman, &sdlutils().images().at("pacman"));
+	// Inicializar componente de animación con la primera animación (normal)
 	Texture* pacmanTexture = &sdlutils().images().at("pacman_sprites");
-	auto pacmanNormal = mngr_->addEntity();
-
-	int frameSize = 32; // Asume que cada frame es de 32x32 píxeles
-	mngr_->addComponent<ImageWithFrames>(
-		pacmanNormal,
+	pmImage_ = mngr_->addComponent<ImageWithFrames>(pacman,
 		pacmanTexture,
-		4, 1, // número de columnas y filas en la animación
-		0, 0, // x e y inicial en la imagen
-		frameSize, frameSize, // ancho y alto del frame
-		0, 0, // columna y fila inicial del frame de inicio
-		4, 1 // número total de columnas y filas
+		8, // Número total de columnas en la hoja de sprites.
+		8, // Número total de filas en la hoja de sprites.
+		0, // X inicial de la animación en la textura (fila de animación normal).
+		0, // Y inicial de la animación en la textura (columna de animación normal).
+		frameWidth, // Ancho de cada frame.
+		frameHeight, // Alto de cada frame.
+		0, // Columna inicial para la animación normal.
+		0, // Fila inicial para la animación normal.
+		1, // Número de columnas (frames) para la animación normal.
+		4  // Número de filas para la animación normal.
 	);
-
-
+	pmState_ = PacManState::NORMAL; // Estado inicial de Pac-Man.
 }
 
 void PacManSystem::update() {
@@ -91,5 +92,42 @@ void PacManSystem::update() {
 		pmTR_->pos_.setY(sdlutils().height() - pmTR_->height_);
 		pmTR_->vel_.set(0.0f, 0.0f);
 	}
+	// Cambiar el estado de animación en función de la lógica del juego
+	switch (pmState_) {
+	case PacManState::NORMAL:
+		if (pmlState_ != pmState_)
+		changePacManState(PacManState::NORMAL);
+		break;
+	case PacManState::IMMORTAL:
+		if (pmlState_ != pmState_)
+		changePacManState(PacManState::IMMORTAL);
+		break;
+	case PacManState::DEAD:
+		if (pmlState_ != pmState_)
+		changePacManState(PacManState::DEAD);
+		break;
+	}
+	pmImage_->update();
+}
 
+void PacManSystem::changePacManState(PacManState newState) {
+    // Asegurarse de cambiar la animación solo si el estado ha cambiado.
+    if (pmState_ != newState) {
+        pmState_ = newState;
+        switch (pmState_) {
+            case PacManState::NORMAL:
+                // Supongamos que la animación normal está en la primera fila (fila 0).
+                pmImage_->changeAnimation(0, 4); // Cambiar a la animación en la fila 0 con 4 frames.
+                break;
+            case PacManState::IMMORTAL:
+                // La animación inmortal está en la tercera fila (fila 2).
+                pmImage_->changeAnimation(2, 4); // Cambiar a la animación en la fila 2 con 4 frames.
+                break;
+            case PacManState::DEAD:
+                // La animación de muerte está en la cuarta fila (fila 3).
+                pmImage_->changeAnimation(3, 4); // Cambiar a la animación en la fila 3 con 4 frames.
+                break;
+            // Añadir más estados y animaciones según sea necesario.
+        }
+    }
 }

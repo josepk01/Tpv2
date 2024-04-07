@@ -19,7 +19,9 @@ public:
 			int scol, int srow, int ncol, int nrow);
 	virtual ~ImageWithFrames();
 	void initComponent() override;
+	void update();
 	void render() override;
+	void changeAnimation(int row, int columns);
 
 private:
 	Texture *tex_;

@@ -9,6 +9,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../sdlutils/Texture.h"
 #include "GameCtrlSystem.h"
+#include "../components/ImageWithFrames.h"
 
 RenderSystem::RenderSystem() {
 
@@ -35,14 +36,17 @@ void RenderSystem::drawPoints() {
 		draw(tr, tex);
 	}
 }
-
 void RenderSystem::drawPacMan() {
 	auto e = mngr_->getHandler(ecs::hdlr::PACMAN);
-	auto tr = mngr_->getComponent<Transform>(e);
-	auto tex = mngr_->getComponent<Image>(e)->tex_;
-	draw(tr, tex);
+	if (e == nullptr) return; // Si PacMan no está inicializado, no hacemos nada.
 
+	auto tr = mngr_->getComponent<Transform>(e);
+	auto imgFrames = mngr_->getComponent<ImageWithFrames>(e); // Usar ImageWithFrames
+	if (tr != nullptr && imgFrames != nullptr) {
+		imgFrames->render(); // Renderizar la animación actual.
+	}
 }
+
 
 
 void RenderSystem::drawMsgs() {

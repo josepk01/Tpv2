@@ -38,26 +38,29 @@ void ImageWithFrames::initComponent() {
 	assert(tr_ != nullptr);
 }
 
-void ImageWithFrames::render() {
-	if (sdlutils().virtualTimer().currTime() > lastFrameChange_ + 50) {
+void ImageWithFrames::update() {
+	// Asegurarse de que la actualización del frame ocurra solo si hay más de un frame para animar
+	if (ncol_ > 0 && sdlutils().virtualTimer().currTime() > lastFrameChange_ + 50) {
 		lastFrameChange_ = sdlutils().virtualTimer().currTime();
 		currFrameC_ = (currFrameC_ + 1) % ncol_;
-		if (currFrameC_ == 0)
-			currFrameR_ = (currFrameR_ + 1) % nrow_;
 	}
+}
 
-	int r = (currFrameR_ + srow_);
-	int c = (currFrameC_ + scol_);
-	auto src = build_sdlrect(c * frameWidth_ + x_, r * frameHeight_ + y_, w_,
-			h_);
+void ImageWithFrames::render() {
+	// Asumiendo que currFrameR_ se establece correctamente al cambiar de animación,
+	// solo necesitamos preocuparnos por currFrameC_ aquí.
+	int frameX = x_ + currFrameC_ * frameWidth_;
+	int frameY = y_ + currFrameR_ * frameHeight_;
+	SDL_Rect src = build_sdlrect(frameX, frameY, frameWidth_, frameHeight_);
+	SDL_Rect dest = build_sdlrect(tr_->pos_.getX(), tr_->pos_.getY(), tr_->width_, tr_->height_);
 
-	auto dest = SDL_Rect{
-		static_cast<int>(tr_->pos_.getX()), // Usar getX() si Vector2D tiene este método
-		static_cast<int>(tr_->pos_.getY()), // Usar getY() si Vector2D tiene este método
-		static_cast<int>(tr_->width_),
-		static_cast<int>(tr_->height_)
-	};
 	tex_->render(src, dest, tr_->rot_);
+}
 
 
+void ImageWithFrames::changeAnimation(int row, int nFrames) {
+	currFrameR_ = row; // Establece la fila actual para la animación.
+	ncol_ = nFrames; // Establece el número total de frames en la animación.
+	currFrameC_ = 0; // Reinicia al primer frame de la nueva animación.
+	lastFrameChange_ = sdlutils().virtualTimer().currTime(); // Reinicia el temporizador de cambio de frame.
 }

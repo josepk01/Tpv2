@@ -33,14 +33,7 @@ public:
 
 private:
     Game(); // Constructor privado
-    FruitSystem* foodSys_;
     ecs::Manager* mngr_;
-    ecs::System* pacmanSys_;
-    ecs::System* gameCtrlSys_;
-    ecs::System* startsSys_;
-    ecs::System* renderSys_;
-    ecs::System* collisionSys_;
-    ecs::System* ghostSys_;
     std::unique_ptr<GameState> currentState_;
 
 };

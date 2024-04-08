@@ -6,20 +6,14 @@
 #include "../sdlutils/InputHandler.h"
 #include "../sdlutils/SDLUtils.h"
 //#include "../systems/CollisionsSystem.h"
-#include "../systems/GameCtrlSystem.h"
-#include "../systems/PacManSystem.h"
-#include "../systems/RenderSystem.h"
-#include "../systems/GhostSystem.h"
+
 
 #include "../utils/Vector2D.h"
 #include "../utils/Collisions.h"
-#include "../systems/CollisionsSystem.h"
 
 using ecs::Manager;
 
-Game::Game() : mngr_(nullptr), pacmanSys_(nullptr), gameCtrlSys_(nullptr),
-startsSys_(nullptr), renderSys_(nullptr), collisionSys_(nullptr),
-foodSys_(nullptr), ghostSys_(nullptr)
+Game::Game() : mngr_(nullptr)
 {
 
 }
@@ -35,15 +29,6 @@ void Game::init() {
 
 	// Create the manager
 	mngr_ = new Manager();
-
-
-	// add the systems
-	pacmanSys_ = mngr_->addSystem<PacManSystem>();
-	foodSys_ = mngr_->addSystem<FruitSystem>();
-	gameCtrlSys_ = mngr_->addSystem<GameCtrlSystem>();
-	renderSys_ = mngr_->addSystem<RenderSystem>();
-	ghostSys_ = mngr_->addSystem<GhostSystem>();
-	collisionSys_ = mngr_->addSystem<CollisionsSystem>();
 }
 
 void Game::start() {
@@ -72,7 +57,7 @@ void Game::start() {
 		currentState_->update();
 
 		sdlutils().clearRenderer();
-		renderSys_->update();
+
 		sdlutils().presentRenderer();
 
 		Uint32 frameTime = sdlutils().currRealTime() - startTime;
@@ -92,13 +77,4 @@ void Game::changeState(std::unique_ptr<GameState> newState) {
 	// Entrar en el nuevo estado
 	currentState_ = std::move(newState);
 	currentState_->enter();
-}
-
-void Game::RunningStateUpdate() {
-	// update de los sistemas
-	pacmanSys_->update();
-	foodSys_->update();
-	gameCtrlSys_->update();
-	ghostSys_->update();
-	collisionSys_->update();
 }

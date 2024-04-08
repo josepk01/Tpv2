@@ -2,6 +2,12 @@
 
 #include "Game.h"
 #include "../ecs/Manager.h"
+#include "../systems/GameCtrlSystem.h"
+#include "../systems/PacManSystem.h"
+#include "../systems/RenderSystem.h"
+#include "../systems/GhostSystem.h"
+#include "../systems/CollisionsSystem.h"
+#include "../systems//FruitSystem.h"
 
 class GameState {
 public:
@@ -12,6 +18,13 @@ public:
     virtual void exit() = 0;
 protected:
     ecs::Manager* mngr_;
+    FruitSystem* foodSys_;
+    ecs::System* pacmanSys_;
+    ecs::System* gameCtrlSys_;
+    ecs::System* startsSys_;
+    ecs::System* renderSys_;
+    ecs::System* collisionSys_;
+    ecs::System* ghostSys_;
 };
 
 // Estado para crear un nuevo juego
@@ -52,13 +65,25 @@ public:
     RunningState(ecs::Manager* mngr) : GameState(mngr) {}
 
     void enter() override {
-        // Preparar el juego para correr
+        // add the systems
+        pacmanSys_ = mngr_->addSystem<PacManSystem>();
+        foodSys_ = mngr_->addSystem<FruitSystem>();
+        gameCtrlSys_ = mngr_->addSystem<GameCtrlSystem>();
+        renderSys_ = mngr_->addSystem<RenderSystem>();
+        ghostSys_ = mngr_->addSystem<GhostSystem>();
+        collisionSys_ = mngr_->addSystem<CollisionsSystem>();
     }
 
     void update() override {
         if (mngr_ != nullptr) {
             std::cout << "MANAGER ESTAAA";
             mngr_->refresh();
+            renderSys_->update();
+            pacmanSys_->update();
+            foodSys_->update();
+            gameCtrlSys_->update();
+            ghostSys_->update();
+            collisionSys_->update();
         }
     }
 

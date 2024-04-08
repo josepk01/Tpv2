@@ -37,5 +37,5 @@ private:
     ecs::System* renderSys_;
     ecs::System* collisionSys_;
     ecs::System* ghostSys_;
-    GameState* currentState;
+    GameState* currentState_;
 };

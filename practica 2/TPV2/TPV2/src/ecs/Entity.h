@@ -56,7 +56,6 @@ public:
 		//std::cout << "Entidad Update" << std::endl;
 	}
 
-
 private:
 
 	// the field currCmps_ can be removed, and instead we can traverse cmps_

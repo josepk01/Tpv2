@@ -47,21 +47,44 @@ bool CollisionsSystem::checkCollision(Transform* a, Transform* b) {
     return collisionX && collisionY;
 }
 void CollisionsSystem::handleFruitCollision(ecs::Entity* pacman, ecs::Entity* fruit) {
-    Message msg;
-    msg.id = _m_PACMAN_FOOD_COLLISION;
-    // Asumiendo que necesitas el identificador de la entidad y el sistema lo proporciona
-    // De lo contrario, ajusta según tu sistema de ECS.
-    msg.star_eaten_data.e = fruit; // Si msg.star_eaten_data.e es un ecs::Entity*
-    mngr_->send(msg);
+    auto fruitTypeComponent = mngr_->getComponent<FruitTypeComponent>(fruit);
 
+    Message m;
+   // bool aux = fruitSystem->isMiraculous(fruit);
+
+    if (fruitTypeComponent->type == FruitTypeComponent::Cherry) {
+        // Hacer a Pac-Man inmortal y permitir que coma fantasmas
+        m.id = _m_IMMUNITY_START;
+    }
+    else {
+        // Aumentar la puntuación de Pac-Man
+        m.id = _m_PACMAN_FOOD_COLLISION;
+        m.star_eaten_data.e = fruit;
+    }
+
+    mngr_->send(m);
     mngr_->setAlive(fruit, false);
 }
 
+
+
 void CollisionsSystem::handleGhostCollision(ecs::Entity* pacman, ecs::Entity* ghost) {
-    Message msg;
-    msg.id = _m_PACMAN_GHOST_COLLISION;
-    msg.star_eaten_data.e = ghost; // Ajusta según tu sistema de ECS.
-    mngr_->send(msg);
+    auto pacmanSystem = mngr_->getSystem<PacManSystem>();
+
+    if (pacmanSystem->isInmortal()) {
+        // Pac-Man come al fantasma y aumenta su puntuación
+        Message m;
+        m.id = _m_PACMAN_GHOST_COLLISION;
+        m.star_eaten_data.e = ghost;
+        mngr_->send(m);
+    }
+    else {
+        // Pac-Man muere
+        pacmanSystem->changePacManState(PacManState::DEAD);
+        // Podrías querer enviar un mensaje específico aquí también
+    }
 
     mngr_->setAlive(ghost, false);
 }
+
+

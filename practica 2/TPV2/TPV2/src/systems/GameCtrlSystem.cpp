@@ -33,12 +33,22 @@ void GameCtrlSystem::update() {
 	}
 }
 
-void GameCtrlSystem::recieve(const Message &m) {
-	switch (m.id) {
-	case _m_PACMAN_FOOD_COLLISION:
-		//score_ += mngr_->getComponent<Points>(m.star_eaten_data.e)->points_;
-		break;
-	default:
-		break;
-	}
+void GameCtrlSystem::recieve(const Message& m) {
+    switch (m.id) {
+    case _m_PACMAN_FOOD_COLLISION:
+        incrScore(10);
+        break;
+    case _m_PACMAN_GHOST_COLLISION:
+
+        break;
+    case _m_IMMUNITY_START:
+        // Podría activar un estado inmortal para Pac-Man
+        break;
+    case _m_IMMUNITY_END:
+        // Finalizar el estado inmortal de Pac-Man
+        break;
+    default:
+        break;
+    }
 }
+

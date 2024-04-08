@@ -22,7 +22,11 @@ public:
 	virtual ~PacManSystem();
 	void initSystem() override;
 	void changePacManState(PacManState newState);
+	void startImmortalState();
+	void checkImmortalState();
+	void receive(const Message& m);
 	void update() override;
+	bool isInmortal();
 private:
 	Transform* pmTR_;
 	ImageWithFrames* pmImage_;
@@ -31,6 +35,8 @@ private:
 	// Las dimensiones de cada frame de Pac-Man basadas en la hoja de sprites proporcionada.
 	const int frameWidth = 1028 / 8;  // La hoja de sprites tiene 8 columnas.
 	const int frameHeight = 1028 / 8; // La hoja de sprites tiene 8 filas.
+	Uint32 immortalStartTime_; // Almacena el tiempo de inicio de la inmortalidad
+	bool isImmortal = false;
 
 };
 

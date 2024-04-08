@@ -103,6 +103,12 @@ void PacManSystem::update() {
 		changePacManState(PacManState::DEAD);
 		break;
 	}
+	checkImmortalState();
+}
+
+bool PacManSystem::isInmortal()
+{
+	return pmState_ == PacManState::IMMORTAL;
 }
 
 void PacManSystem::changePacManState(PacManState newState) {
@@ -125,4 +131,32 @@ void PacManSystem::changePacManState(PacManState newState) {
             // Añadir más estados y animaciones según sea necesario.
         }
     }
+}
+
+
+void PacManSystem::startImmortalState() {
+	changePacManState(PacManState::IMMORTAL);
+	immortalStartTime_ = SDL_GetTicks();
+	isImmortal = true;
+}
+
+void PacManSystem::checkImmortalState() {
+	if (isImmortal && (SDL_GetTicks() - immortalStartTime_ >= 20000)) { // 20 segundos
+		isImmortal = false;
+		Message m;
+		m.id = _m_IMMUNITY_END;
+		mngr_->send(m);
+	}
+}
+
+void PacManSystem::receive(const Message& m) {
+	switch (m.id) {
+	case _m_IMMUNITY_START:
+		startImmortalState();
+		break;
+	case _m_IMMUNITY_END:
+		changePacManState(PacManState::NORMAL);
+		break;
+		// Otros casos
+	}
 }

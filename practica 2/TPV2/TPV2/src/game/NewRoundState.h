@@ -1,10 +1,12 @@
+
 #pragma once
 #include "GameState.h"
-#include <SDL_rect.h>
 
 class NewRoundState : public GameState {
 public:
-    void NewRoundState();
+    NewRoundState(); // Constructor sin argumentos
+    virtual ~NewRoundState();
+
     void enter() override;
     void exit() override;
     void update() override;

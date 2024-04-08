@@ -5,8 +5,8 @@
 #include <vector>
 
 #include "../ecs/ecs.h"
-#include "../../States.h"
 #include "../systems/FruitSystem.h"
+#include "GameState.h"
 class Game {
 public:
     enum State {

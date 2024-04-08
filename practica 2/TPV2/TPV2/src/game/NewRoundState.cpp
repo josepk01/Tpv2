@@ -1,11 +1,17 @@
 #include "NewRoundState.h"
 #include "Game.h"
-#include "RunningState.h"
 #include "../sdlutils/InputHandler.h"
 
+NewRoundState::NewRoundState() {
+    // Constructor vacío
+}
+
+NewRoundState::~NewRoundState() {
+    // Destructor, limpia recursos si es necesario
+}
+
 void NewRoundState::enter() {
-    // Setup para NewRoundState
-    // Podrías inicializar la ronda aquí
+    // Configuración para NewRoundState
 }
 
 void NewRoundState::exit() {
@@ -15,6 +21,6 @@ void NewRoundState::exit() {
 void NewRoundState::update() {
     // Si el usuario pulsa ENTER, cambiamos al estado RunningState
     if (ih().isKeyDown(SDL_SCANCODE_RETURN)) {
-        //game->changeState(new RunningState());
+       Game::instance().changeState(new RunningState());
     }
 }

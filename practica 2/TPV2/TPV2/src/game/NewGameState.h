@@ -3,7 +3,7 @@
 
 class NewGameState : public GameState {
 public:
-    void enter(Game* game) override;
-    void exit(Game* game) override;
-    void update(Game* game) override;
+    void enter() override;
+    void exit() override;
+    void update() override;
 };

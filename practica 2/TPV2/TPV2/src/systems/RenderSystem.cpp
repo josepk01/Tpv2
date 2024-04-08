@@ -23,7 +23,7 @@ void RenderSystem::initSystem() {
 
 void RenderSystem::update() {
 	drawMsgs();
-	//drawPoints();
+	drawPoints();
 	drawPacMan();
 	drawGhosts();
 }
@@ -31,10 +31,7 @@ void RenderSystem::update() {
 void RenderSystem::drawPoints() {
 	// draw points
 	for (auto e : mngr_->getEntities(ecs::grp::POINTS)) {
-
-		auto tr = mngr_->getComponent<Transform>(e);
-		auto tex = mngr_->getComponent<Image>(e)->tex_;
-		draw(tr, tex);
+		mngr_->getComponent<Image>(e)->render();
 	}
 }
 

@@ -59,8 +59,6 @@ void GhostSystem::generateGhost() {
 		}
 
 		Vector2D p = Vector2D(width_/2, height_/2);
-		Vector2D c = Vector2D(width_ / 2 + rand_.nextInt(-100, 100),
-			height_ / 2 + rand_.nextInt(-100, 100));
 
 		Vector2D v = Vector2D(0.0f, 0.0f);
 
@@ -70,7 +68,7 @@ void GhostSystem::generateGhost() {
 
 		auto a = mngr->addEntity(ecs::grp::GHOSTS);
 
-		mngr->addComponent<Transform>(a, p, v, 10 + 5 * g, 10 + 5 * g, 0.0f);
+		mngr->addComponent<Transform>(a, p, p, 10 + 5 * g, 10 + 5 * g, 0.0f);
 
 		Texture* Texture = &sdlutils().images().at("pacman_sprites");
 		mngr->addComponent<ImageWithFrames>(a, //

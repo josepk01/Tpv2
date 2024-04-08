@@ -54,25 +54,22 @@ void PacManSystem::update() {
 
 		if (ihldr.isKeyDown(SDL_SCANCODE_RIGHT)) { // rotate right
 			pmTR_->rot_ = 90.0f;
-			pmTR_->vel_ = Vector2D(SPEED, 0);
+			pmTR_->vel_ = Vector2D(SPEED * 0.1, 0);
 
 		} else if (ihldr.isKeyDown(SDL_SCANCODE_LEFT)) { // rotate left
 			pmTR_->rot_ = -90.0f;
-			pmTR_->vel_ = Vector2D(-SPEED, 0);
+			pmTR_->vel_ = Vector2D(-SPEED * 0.1, 0);
 
 		} else if (ihldr.isKeyDown(SDL_SCANCODE_UP)) { // increase speed
 			pmTR_->rot_ = 0.0f;
-			pmTR_->vel_ = Vector2D(0, -SPEED);
+			pmTR_->vel_ = Vector2D(0, -SPEED * 0.1);
 
 		} else if (ihldr.isKeyDown(SDL_SCANCODE_DOWN)) { // decrease speed
 			pmTR_->rot_ = 180.0f;
-			pmTR_->vel_ = Vector2D(0, SPEED);
+			pmTR_->vel_ = Vector2D(0, SPEED * 0.1);
 		}
 
 	}
-
-	// move the pacman
-	pmTR_->pos_ = pmTR_->pos_ + pmTR_->vel_;
 
 	// check left/right borders
 	if (pmTR_->pos_.getX() < 0) {
@@ -106,7 +103,6 @@ void PacManSystem::update() {
 		changePacManState(PacManState::DEAD);
 		break;
 	}
-	pmImage_->update();
 }
 
 void PacManSystem::changePacManState(PacManState newState) {

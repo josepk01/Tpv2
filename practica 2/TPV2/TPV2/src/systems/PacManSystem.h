@@ -7,7 +7,7 @@
 
 struct Transform;
 
-const float SPEED = 1.0f;
+const float SPEED = 2.5f;
 enum class PacManState {
 	NORMAL,
 	IMMORTAL,

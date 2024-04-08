@@ -23,7 +23,6 @@ void RandomFollow::initComponent() {
 
 void RandomFollow::update() {
 
-    std::cout << "RANDOMMMM";
     auto& pos = tr_->getPos();
     auto& vel = tr_->getVel();
 
@@ -31,13 +30,13 @@ void RandomFollow::update() {
     Vector2D targetPos = to_follow_;
 
     // Actualizamos la direccion de la velocidad si se da la probabilidad
-    auto g = rand_.nextInt(0, 500);
+    auto g = rand_.nextInt(0, 1000);
 
     if (g == 0) {
         // Calcula el vector de dirección hacia el caza
         Vector2D dir = (targetPos - pos).normalize();
         // Cambia la velocidad
-        vel = dir * vel.magnitude();
+        vel = dir * followVelocity_ * 0.1;
         tr_->vel_ = vel;
     }
 }

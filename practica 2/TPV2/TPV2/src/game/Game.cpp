@@ -53,6 +53,9 @@ void Game::start() {
 	auto &ihdlr = ih();
 
 	while (!exit) {
+
+		std::cout << "VUELTA ";
+
 		Uint32 startTime = sdlutils().currRealTime();
 
 		// refresh the input handler

@@ -16,6 +16,7 @@ public:
 	void update() override;
 
 private:
+	double followVelocity_ = 1;
 	Vector2D& to_follow_;
 	Transform* tr_;
 	RandomNumberGenerator& rand_;

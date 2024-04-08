@@ -63,6 +63,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\RandomFollow.cpp" />
     <ClCompile Include="src\systems\GhostSystem.cpp" />
     <ClCompile Include="src\components\ImageWithFrames.cpp" />

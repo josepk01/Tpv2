@@ -16,7 +16,7 @@
 //
 #define _GRPS_LIST_ \
 	POINTS, \
-	CEREZAS, \
+	PERAS, \
 	GHOSTS
 
 // Handlers list - must have at least one element

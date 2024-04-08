@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\RandomFollow.h" />
+    <ClInclude Include="src\systems\CollisionsSystem.h" />
     <ClInclude Include="src\systems\GhostSystem.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\ImageWithFrames.h" />
@@ -65,6 +66,7 @@
   <ItemGroup>
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\RandomFollow.cpp" />
+    <ClCompile Include="src\systems\CollisionsSystem.cpp" />
     <ClCompile Include="src\systems\GhostSystem.cpp" />
     <ClCompile Include="src\components\ImageWithFrames.cpp" />
     <ClCompile Include="src\ecs\Manager.cpp" />

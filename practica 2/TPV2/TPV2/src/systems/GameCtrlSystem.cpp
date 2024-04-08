@@ -36,7 +36,7 @@ void GameCtrlSystem::update() {
 void GameCtrlSystem::recieve(const Message &m) {
 	switch (m.id) {
 	case _m_PACMAN_FOOD_COLLISION:
-		score_ += mngr_->getComponent<Points>(m.star_eaten_data.e)->points_;
+		//score_ += mngr_->getComponent<Points>(m.star_eaten_data.e)->points_;
 		break;
 	default:
 		break;

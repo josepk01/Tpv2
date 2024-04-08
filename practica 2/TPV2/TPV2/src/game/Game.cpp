@@ -13,6 +13,7 @@
 
 #include "../utils/Vector2D.h"
 #include "../utils/Collisions.h"
+#include "../systems/CollisionsSystem.h"
 
 using ecs::Manager;
 
@@ -42,7 +43,7 @@ void Game::init() {
 	gameCtrlSys_ = mngr_->addSystem<GameCtrlSystem>();
 	renderSys_ = mngr_->addSystem<RenderSystem>();
 	ghostSys_ = mngr_->addSystem<GhostSystem>();
-	//collisionSys_ = mngr_->addSystem<CollisionsSystem>();
+	collisionSys_ = mngr_->addSystem<CollisionsSystem>();
 }
 
 void Game::start() {
@@ -71,7 +72,7 @@ void Game::start() {
 		foodSys_->update();
 		gameCtrlSys_->update();
 		ghostSys_->update();
-		//collisionSys_->update();
+		collisionSys_->update();
 
 		mngr_->refresh();
 

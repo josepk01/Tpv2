@@ -44,6 +44,12 @@ void Game::init() {
 	renderSys_ = mngr_->addSystem<RenderSystem>();
 	ghostSys_ = mngr_->addSystem<GhostSystem>();
 	collisionSys_ = mngr_->addSystem<CollisionsSystem>();
+
+	//paused_state_ = new PausedState();
+	//runing_state_ = new RunningState(*pacmanSys_, *foodSys_, *gameCtrlSys_, *renderSys_, *ghostSys_, *collisionSys_);
+	//newgame_state_ = new NewGameState();
+	newround_state_ = new NewRoundState();
+	//gameover_state_ = new GameOverState();
 }
 
 void Game::start() {
@@ -67,13 +73,7 @@ void Game::start() {
 			continue;
 		}
 
-
-		pacmanSys_->update();
-		foodSys_->update();
-		gameCtrlSys_->update();
-		ghostSys_->update();
-		collisionSys_->update();
-
+		current_state_->update();
 		mngr_->refresh();
 
 		sdlutils().clearRenderer();
@@ -88,10 +88,14 @@ void Game::start() {
 
 }
 
+
 void Game::changeState(GameState* newState) {
-	if (currentState_ != nullptr) {
-		currentState_->exit();
+	if (current_state_ != nullptr) {
+		current_state_->exit();
 	}
-	currentState_ = newState;
-	currentState_->enter();
+	current_state_ = newState;
+	if (current_state_ != nullptr) {
+		current_state_->enter();
+	}
 }
+

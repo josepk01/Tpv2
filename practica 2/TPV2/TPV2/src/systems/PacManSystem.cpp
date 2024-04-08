@@ -10,7 +10,8 @@
 #include "../components/ImageWithFrames.h"
 
 PacManSystem::PacManSystem() :
-		pmTR_(nullptr) {
+		pmTR_(nullptr), 
+		lives_(3) {
 }
 
 PacManSystem::~PacManSystem() {
@@ -148,7 +149,31 @@ void PacManSystem::checkImmortalState() {
 		mngr_->send(m);
 	}
 }
+// Método para perder una vida y reiniciar o terminar el juego
+void PacManSystem::loseLife() {
+	if (lives_ > 0) {
+		--lives_;
+		// Si todavía quedan vidas, reinicia la posición de Pac-Man
+		resetPacManPosition();
+		if (lives_ == 0) {
+			// Cambiar a estado muerto si no quedan vidas
+			changePacManState(PacManState::DEAD);
+			// Aquí puedes agregar lógica para terminar el juego o reiniciarlo completamente
+		}
+	}
+}
 
+// Método para reiniciar la posición de Pac-Man y cambiarlo al estado normal
+void PacManSystem::resetPacManPosition() {
+	auto s = 50.0f;
+	auto x = (sdlutils().width() + s) / 2.0f;
+	auto y = (sdlutils().height() + s) / 2.0f;
+	pmTR_->init(Vector2D(x, y), Vector2D(), s, s, 0.0f);
+	changePacManState(PacManState::NORMAL);
+}
+
+// Asegúrate de llamar a loseLife() en el lugar apropiado, como en la lógica de colisión o al recibir un mensaje específico de muerte
+// Por ejemplo, en el método receive, podrías añadir un caso para manejar la muerte
 void PacManSystem::receive(const Message& m) {
 	switch (m.id) {
 	case _m_IMMUNITY_START:
@@ -156,6 +181,9 @@ void PacManSystem::receive(const Message& m) {
 		break;
 	case _m_IMMUNITY_END:
 		changePacManState(PacManState::NORMAL);
+		break;
+	case _m_GAME_OVER: // Suponiendo que tienes un mensaje para cuando Pac-Man muere
+		loseLife();
 		break;
 		// Otros casos
 	}

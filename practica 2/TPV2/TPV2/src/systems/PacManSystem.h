@@ -25,6 +25,8 @@ public:
 	void startImmortalState();
 	void checkImmortalState();
 	void receive(const Message& m);
+	void loseLife();
+	void resetPacManPosition();
 	void update() override;
 	bool isInmortal();
 private:
@@ -37,6 +39,6 @@ private:
 	const int frameHeight = 1028 / 8; // La hoja de sprites tiene 8 filas.
 	Uint32 immortalStartTime_; // Almacena el tiempo de inicio de la inmortalidad
 	bool isImmortal = false;
-
+	int lives_;
 };
 

@@ -47,23 +47,23 @@ bool CollisionsSystem::checkCollision(Transform* a, Transform* b) {
     return collisionX && collisionY;
 }
 void CollisionsSystem::handleFruitCollision(ecs::Entity* pacman, ecs::Entity* fruit) {
-    auto fruitTypeComponent = mngr_->getComponent<FruitTypeComponent>(fruit);
+   // auto fruitTypeComponent = mngr_->getComponent<FruitSystem>(fruit);
 
-    Message m;
-   // bool aux = fruitSystem->isMiraculous(fruit);
+   // Message m;
+   //// bool aux = fruitSystem->isMiraculous(fruit);
 
-    if (fruitTypeComponent->type == FruitTypeComponent::Cherry) {
-        // Hacer a Pac-Man inmortal y permitir que coma fantasmas
-        m.id = _m_IMMUNITY_START;
-    }
-    else {
-        // Aumentar la puntuación de Pac-Man
-        m.id = _m_PACMAN_FOOD_COLLISION;
-        m.star_eaten_data.e = fruit;
-    }
+   // //if (fruitTypeComponent->type == FruitTypeComponent::Cherry) {
+   //     // Hacer a Pac-Man inmortal y permitir que coma fantasmas
+   //     m.id = _m_IMMUNITY_START;
+   //// }
+   // //else {
+   //     //// Aumentar la puntuación de Pac-Man
+   // //    m.id = _m_PACMAN_FOOD_COLLISION;
+   // //    m.star_eaten_data.e = fruit;
+   // //}
 
-    mngr_->send(m);
-    mngr_->setAlive(fruit, false);
+   // mngr_->send(m);
+   // mngr_->setAlive(fruit, false);
 }
 
 

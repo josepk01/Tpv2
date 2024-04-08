@@ -1,4 +1,6 @@
 #pragma once
+
+
 class GameState {
 public:
     virtual void enter() = 0;
@@ -11,7 +13,7 @@ class RunningState : public GameState {
         // Preparar juego para correr
     }
     void update() override {
-        // Actualizar sistemas, chequear transiciones de estado
+
     }
     void exit() override {
         // Limpiar estado corriendo

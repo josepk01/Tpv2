@@ -68,7 +68,7 @@ void GhostSystem::generateGhost() {
 
 		auto a = mngr->addEntity(ecs::grp::GHOSTS);
 
-		mngr->addComponent<Transform>(a, p, v, 10 + 5 * g, 10 + 5 * g, 0.0f);
+		mngr->addComponent<Transform>(a, p, v, 30, 30, 0.0f);
 
 		Texture* Texture = &sdlutils().images().at("pacman_sprites");
 		mngr->addComponent<ImageWithFrames>(a, //

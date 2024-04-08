@@ -89,9 +89,9 @@ void Game::start() {
 }
 
 void Game::changeState(GameState* newState) {
-	if (currentState != nullptr) {
-		currentState->exit();
+	if (currentState_ != nullptr) {
+		currentState_->exit();
 	}
-	currentState = newState;
-	currentState->enter();
+	currentState_ = newState;
+	currentState_->enter();
 }

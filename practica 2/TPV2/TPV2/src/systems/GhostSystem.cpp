@@ -37,7 +37,7 @@ void GhostSystem::generateGhost() {
 	if (currentGhosts_ < maxGhosts_) {
 		currentGhosts_++;
 
-		std::cout << "ghost generar";
+		//std::cout << "ghost generar";
 
 		int spawnSide = rand_.nextInt(0, 4);
 

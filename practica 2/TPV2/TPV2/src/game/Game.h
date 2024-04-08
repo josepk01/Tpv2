@@ -6,7 +6,7 @@
 
 #include "../ecs/ecs.h"
 #include "../../States.h"
-#include "../systems/FoodSystem.h"
+#include "../systems/FruitSystem.h"
 class Game {
 public:
     static Game& instance() {
@@ -29,7 +29,7 @@ public:
 
 private:
     Game(); // Constructor privado
-    FoodSystem* foodSys_;
+    FruitSystem* foodSys_;
     ecs::Manager* mngr_;
     ecs::System* pacmanSys_;
     ecs::System* gameCtrlSys_;

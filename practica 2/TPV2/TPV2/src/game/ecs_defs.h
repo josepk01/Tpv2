@@ -16,7 +16,7 @@
 //
 #define _GRPS_LIST_ \
 	POINTS, \
-	PERAS, \
+	FRUITS, \
 	GHOSTS
 
 // Handlers list - must have at least one element
@@ -32,6 +32,6 @@
 	RENDER, \
 	GAMECTRL, \
 	COLLISIONS,\
-	FRUITS, \
-	GHOSTS
+	GHOSTS, \
+	FRUITS
 

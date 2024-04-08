@@ -39,7 +39,7 @@ void ImageWithFrames::initComponent() {
 }
 
 void ImageWithFrames::update() {
-	std::cout << "ImageWithFrames ";
+	//std::cout << "ImageWithFrames ";
 	// Asegurarse de que la actualización del frame ocurra solo si hay más de un frame para animar
 	if (ncol_ > 0 && sdlutils().virtualTimer().currTime() > lastFrameChange_ + 50) {
 		lastFrameChange_ = sdlutils().virtualTimer().currTime();

@@ -38,7 +38,7 @@ void Game::init() {
 
 	// add the systems
 	pacmanSys_ = mngr_->addSystem<PacManSystem>();
-	foodSys_ = mngr_->addSystem<FoodSystem>();
+	foodSys_ = mngr_->addSystem<FruitSystem>();
 	gameCtrlSys_ = mngr_->addSystem<GameCtrlSystem>();
 	renderSys_ = mngr_->addSystem<RenderSystem>();
 	ghostSys_ = mngr_->addSystem<GhostSystem>();
@@ -54,7 +54,7 @@ void Game::start() {
 
 	while (!exit) {
 
-		std::cout << "VUELTA ";
+		//std::cout << "VUELTA ";
 
 		Uint32 startTime = sdlutils().currRealTime();
 

@@ -22,10 +22,13 @@ void RenderSystem::initSystem() {
 }
 
 void RenderSystem::update() {
-	drawMsgs();
-	drawPoints();
+	drawFruits();
 	drawPacMan();
 	drawGhosts();
+	drawMsgs();
+	drawPoints();
+
+
 }
 
 void RenderSystem::drawPoints() {
@@ -34,6 +37,16 @@ void RenderSystem::drawPoints() {
 		mngr_->getComponent<Image>(e)->render();
 	}
 }
+void RenderSystem::drawFruits() {
+	for (auto e : mngr_->getEntities(ecs::grp::FRUITS)) {
+		auto tr = mngr_->getComponent<Transform>(e);
+		auto imgFrames = mngr_->getComponent<ImageWithFrames>(e);
+		if (tr != nullptr && imgFrames != nullptr) {
+			imgFrames->render();
+		}
+	}
+}
+
 
 void RenderSystem::drawPacMan() {
 	auto e = mngr_->getHandler(ecs::hdlr::PACMAN);

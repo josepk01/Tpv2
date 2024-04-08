@@ -181,7 +181,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\systems\GhostSystem.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Systems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -243,7 +243,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\systems\GhostSystem.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Systems</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

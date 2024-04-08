@@ -5,6 +5,8 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../game/Game.h"
 #include <math.h> 
+#include <cstdlib> 
+#include <ctime>   
 FruitSystem::FruitSystem() : gridWidth_(10), gridHeight_(10), fruitCount_(0) {
     // Inicialización y cálculos necesarios aquí
 }
@@ -30,36 +32,53 @@ void FruitSystem::checkGameOver() {
 void FruitSystem::placeFruits() {
     std::cout << "Colocando frutas en el grid...";
 
-    int maxWidth = 800 / gridWidth_; // Calcula el ancho máximo para cada fruta
-    int maxHeight = 600 / gridHeight_; // Calcula el alto máximo para cada fruta
-    int fruitSize = std::min(maxWidth, maxHeight); // Usa el menor de los dos para mantener la proporción
+    srand(time(nullptr)); // Inicializa la semilla del generador de números aleatorios.
 
-    for (int i = 0; i < gridWidth_; ++i) {
-        for (int j = 0; j < gridHeight_; ++j) {
-            auto entity = mngr_->addEntity(ecs::grp::FRUITS);
+    int totalPositions = gridWidth_ * gridHeight_;
+    int fruitTarget = static_cast<int>(totalPositions * 0.2); // 20% de las posiciones.
 
-            // Ajusta la posición para centrar las frutas en sus celdas
-            float x = i * maxWidth + (maxWidth - fruitSize) / 2;
-            float y = j * maxHeight + (maxHeight - fruitSize) / 2;
+    // Valores para el tamaño de las frutas basados en la pantalla y grid.
+    int maxWidth = 800 / gridWidth_;
+    int maxHeight = 600 / gridHeight_;
+    int fruitSize = std::min(maxWidth, maxHeight);
 
-            auto tr = mngr_->addComponent<Transform>(entity, Vector2D(x, y), Vector2D(), fruitSize, fruitSize, 0.0f);
+    int spriteWidth = 128;
+    int spriteHeight = 128;
 
-            // Selecciona aleatoriamente entre cereza y pera
-            bool isCherry = rand() % 2 == 0;
-            int frameX = isCherry ? 5 : 7; // Usando los valores dados para cherryX y pearX
-            int frameY = 2; // Común para cereza y pera
+    // Contador para el número actual de frutas colocadas.
+    int fruitsPlaced = 0;
 
-            Texture* fruitsTexture = &sdlutils().images().at("pacman_sprites");
-            mngr_->addComponent<ImageWithFrames>(entity,
-                fruitsTexture,
-                8, 8, frameX, frameY, fruitSize, fruitSize, 0, 0, 1, 1);
+    while (fruitsPlaced < fruitTarget) {
+        for (int i = 0; i < gridWidth_ && fruitsPlaced < fruitTarget; ++i) {
+            for (int j = 0; j < gridHeight_ && fruitsPlaced < fruitTarget; ++j) {
+                // Genera un número aleatorio entre 0 y 1.
+                float probability = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
+                if (probability < 0.2) { // 20% de probabilidad de colocar una fruta aquí.
+                    auto entity = mngr_->addEntity(ecs::grp::FRUITS);
 
-            fruitCount_++;
+                    // Cálculos de posición para la fruta.
+                    float x = i * maxWidth + (maxWidth - fruitSize) / 2;
+                    float y = j * maxHeight + (maxHeight - fruitSize) / 2;
+
+                    auto tr = mngr_->addComponent<Transform>(entity, Vector2D(x, y), Vector2D(), fruitSize, fruitSize, 0.0f);
+
+                    // Decide entre la cereza y la pera.
+                    bool isCherry = rand() % 2 == 0;
+                    int frameX = isCherry ? 4 * spriteWidth : 7 * spriteWidth;
+                    int frameY = 1 * spriteHeight;
+
+                    Texture* fruitsTexture = &sdlutils().images().at("pacman_sprites");
+                    mngr_->addComponent<ImageWithFrames>(entity,
+                        fruitsTexture,
+                        8, 8, frameX, frameY, spriteWidth, spriteHeight, 0, 0, 1, 1);
+
+                    fruitsPlaced++;
+                    fruitCount_++;
+                }
+            }
         }
     }
 }
-
-
 bool FruitSystem::isMiraculous(int x, int y) {
     // Implementa tu lógica para determinar si una fruta es milagrosa
     return false; // Ejemplo

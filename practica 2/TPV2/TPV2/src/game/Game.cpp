@@ -53,6 +53,8 @@ void Game::start() {
 
 	auto &ihdlr = ih();
 
+	changeState(std::make_unique<RunningState>(mngr_));
+
 	while (!exit) {
 
 		//std::cout << "VUELTA ";
@@ -66,15 +68,8 @@ void Game::start() {
 			exit = true;
 			continue;
 		}
-
-
-		pacmanSys_->update();
-		foodSys_->update();
-		gameCtrlSys_->update();
-		ghostSys_->update();
-		collisionSys_->update();
-
-		mngr_->refresh();
+		
+		currentState_->update();
 
 		sdlutils().clearRenderer();
 		renderSys_->update();
@@ -88,10 +83,22 @@ void Game::start() {
 
 }
 
-void Game::changeState(GameState* newState) {
+void Game::changeState(std::unique_ptr<GameState> newState) {
+	// Salir del estado antiguo
 	if (currentState_ != nullptr) {
 		currentState_->exit();
 	}
-	currentState_ = newState;
+
+	// Entrar en el nuevo estado
+	currentState_ = std::move(newState);
 	currentState_->enter();
+}
+
+void Game::RunningStateUpdate() {
+	// update de los sistemas
+	pacmanSys_->update();
+	foodSys_->update();
+	gameCtrlSys_->update();
+	ghostSys_->update();
+	collisionSys_->update();
 }

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\components\RandomFollow.h" />
+    <ClInclude Include="src\game\States.h" />
     <ClInclude Include="src\systems\CollisionsSystem.h" />
     <ClInclude Include="src\systems\GhostSystem.h" />
     <ClInclude Include="src\components\Image.h" />

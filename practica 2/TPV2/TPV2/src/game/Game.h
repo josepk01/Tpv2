@@ -3,9 +3,10 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 
 #include "../ecs/ecs.h"
-#include "../../States.h"
+#include "../game/States.h"
 #include "../systems/FruitSystem.h"
 class Game {
 public:
@@ -21,7 +22,10 @@ public:
 
     void init();
     void start();
-    void changeState(GameState* newState);
+    void changeState(std::unique_ptr<GameState> newState);
+
+    //Update de cada state (tendria que ponerlo en states pero no he podido)
+    void RunningStateUpdate();
 
     // Elimina la capacidad de copiar o asignar la instancia
     Game(Game const&) = delete;
@@ -37,5 +41,6 @@ private:
     ecs::System* renderSys_;
     ecs::System* collisionSys_;
     ecs::System* ghostSys_;
-    GameState* currentState_;
+    std::unique_ptr<GameState> currentState_;
+
 };

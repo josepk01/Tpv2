@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\components\FruitComponent.h" />
     <ClInclude Include="src\components\RandomFollow.h" />
     <ClInclude Include="src\systems\CollisionsSystem.h" />
     <ClInclude Include="src\systems\GhostSystem.h" />
@@ -64,6 +65,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\FruitComponent.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\RandomFollow.cpp" />
     <ClCompile Include="src\systems\CollisionsSystem.cpp" />

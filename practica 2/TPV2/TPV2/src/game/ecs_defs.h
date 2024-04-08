@@ -10,7 +10,8 @@
 	STARMOTION, \
 	POINTS,\
 	IMAGEWITHFRAMES, \
-	RANDOMFOLLOW
+	RANDOMFOLLOW, \
+	FRUITCOMPONENT
 
 // Groups list - must have at least one element
 //

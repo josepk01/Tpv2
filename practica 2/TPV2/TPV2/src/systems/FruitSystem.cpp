@@ -1,6 +1,7 @@
 #include "FruitSystem.h"
 #include "../components/Transform.h"
 #include "../components/ImageWithFrames.h"
+#include "../components/FruitComponent.h"
 #include "../ecs/Manager.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../game/Game.h"
@@ -64,13 +65,15 @@ void FruitSystem::placeFruits() {
 
                     // Decide entre la cereza y la pera.
                     bool isCherry = rand() % 2 == 0;
-                    int frameX = isCherry ? 4 * spriteWidth : 7 * spriteWidth;
+                    int frameX = 4 * spriteWidth;
                     int frameY = 1 * spriteHeight;
 
                     Texture* fruitsTexture = &sdlutils().images().at("pacman_sprites");
                     mngr_->addComponent<ImageWithFrames>(entity,
                         fruitsTexture,
                         8, 8, frameX, frameY, spriteWidth, spriteHeight, 0, 0, 1, 1);
+
+                    mngr_->addComponent<FruitComponent>(entity);
 
                     fruitsPlaced++;
                     fruitCount_++;

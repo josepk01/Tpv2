@@ -1,5 +1,6 @@
 #include "CollisionsSystem.h"
 #include "../components/Transform.h"
+#include "../components/FruitComponent.h"
 #include "../ecs/Manager.h"
 #include "../ecs/Entity.h"
 #include "PacManSystem.h"
@@ -47,12 +48,12 @@ bool CollisionsSystem::checkCollision(Transform* a, Transform* b) {
     return collisionX && collisionY;
 }
 void CollisionsSystem::handleFruitCollision(ecs::Entity* pacman, ecs::Entity* fruit) {
-    auto fruitTypeComponent = mngr_->getComponent<FruitTypeComponent>(fruit);
+    auto fruitTypeComponent = mngr_->getComponent<FruitComponent>(fruit);
 
     Message m;
-   // bool aux = fruitSystem->isMiraculous(fruit);
+    // bool aux = fruitSystem->isMiraculous(fruit);
 
-    if (fruitTypeComponent->type == FruitTypeComponent::Cherry) {
+    if (fruitTypeComponent->getMilagrosa()) {
         // Hacer a Pac-Man inmortal y permitir que coma fantasmas
         m.id = _m_IMMUNITY_START;
     }

@@ -17,8 +17,6 @@ void PauseState::update() {
 		Game::instance().setState(Game::RUNNING);
 	}
 	std::cout << "pause";
-	sdlutils().clearRenderer();
-	sdlutils().presentRenderer();
 }
 
 void PauseState::exit() {

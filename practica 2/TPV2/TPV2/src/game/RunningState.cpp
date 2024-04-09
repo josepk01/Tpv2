@@ -45,9 +45,7 @@ void RunningState::update() {
 	foodSys_->update();
 	ghostSys_->update();
 	collisionSys_->update();
-    sdlutils().clearRenderer();
     render_system->update();
-    sdlutils().presentRenderer();
 
     // move to pause if P pressed
     if (ih().keyDownEvent() && ih().isKeyDown(SDL_SCANCODE_P)) {

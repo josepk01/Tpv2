@@ -1,14 +1,19 @@
 #include "RunningState.h"
 #include "Game.h"
 #include "../sdlutils/InputHandler.h"
-#include "../systems/GhostSystem.h"
-#include "../systems/PacManSystem.h"
-#include "../systems/RenderSystem.h"
-#include "../systems/CollisionsSystem.h"
-#include "../systems/GameCtrlSystem.h"
 
 RunningState::RunningState() {
-    // Aquí podrías inicializar recursos si es necesario
+
+    auto mngr = Game::instance().getMngr();
+
+    gameCtrlSys_ = mngr->getSystem<GameCtrlSystem>();
+
+    pacmanSys_ = mngr->getSystem<PacManSystem>();
+    ghostSys_ = mngr->getSystem<GhostSystem>();
+    foodSys_ = mngr->getSystem<FruitSystem>();
+
+    render_system = mngr->getSystem<RenderSystem>();
+    collisionSys_ = mngr->getSystem<CollisionsSystem>();
     ;
 }
 
@@ -30,23 +35,10 @@ void RunningState::exit() {
 
 void RunningState::update() {
 
-    auto mngr = Game::instance().getMngr();
-
     if (ih().isKeyDown(SDL_SCANCODE_ESCAPE)) {
         Game::instance().setState(Game::PAUSED);
         return;
     }
-
-    GameCtrlSystem* gameCtrlSys_ = mngr->getSystem<GameCtrlSystem>();
-
-    PacManSystem* pacmanSys_ = mngr->getSystem<PacManSystem>();
-    GhostSystem* ghostSys_ = mngr->getSystem<GhostSystem>();
-    FruitSystem* foodSys_ = mngr->getSystem<FruitSystem>();
-
-    RenderSystem* render_system = mngr->getSystem<RenderSystem>();
-    CollisionsSystem* collisionSys_ = mngr->getSystem<CollisionsSystem>();
-
-
 
     gameCtrlSys_->update();
 

@@ -2,6 +2,12 @@
 
 #include "GameState.h"
 #include "../ecs/Manager.h" 
+#include "../systems/GhostSystem.h"
+#include "../systems/PacManSystem.h"
+#include "../systems/RenderSystem.h"
+#include "../systems/CollisionsSystem.h"
+#include "../systems/GameCtrlSystem.h"
+#include "../systems/FruitSystem.h"
 
 class RunningState : public GameState {
 public:
@@ -14,4 +20,12 @@ public:
 
 private:
     ecs::Manager* mngr_; 
+    GameCtrlSystem* gameCtrlSys_;
+
+    PacManSystem* pacmanSys_;
+    GhostSystem* ghostSys_;
+    FruitSystem* foodSys_;
+
+    RenderSystem* render_system;
+    CollisionsSystem* collisionSys_;
 };

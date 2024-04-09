@@ -16,7 +16,7 @@ void NewGameState::exit() {
 void NewGameState::update() {
     // Si el usuario pulsa cualquier tecla, cambiamos al estado NewRoundState
     if (ih().keyDownEvent()) {
-        Game::instance().setState(Game::PAUSED);
+        Game::instance().setState(Game::NEWROUND);
     }
     sdlutils().clearRenderer();
     sdlutils().presentRenderer();

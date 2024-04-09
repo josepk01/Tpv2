@@ -33,6 +33,10 @@ public:
 	{
 		return lives_;
 	}
+	void reset()
+	{
+		 lives_ = 3;
+	}
 private:
 	Transform* pmTR_;
 	ImageWithFrames* pmImage_;

@@ -37,11 +37,7 @@ void RunningState::exit() {
 
 void RunningState::update() {
 
-    if (ih().isKeyDown(SDL_SCANCODE_ESCAPE)) {
-        Game::instance().setState(Game::PAUSED);
-        return;
-    }
-
+    std::cout << "runing";
     gameCtrlSys_->update();
 
 	pacmanSys_->update();
@@ -63,12 +59,14 @@ void RunningState::update() {
         return;
     }
     if (pacmanSys_->getlives() <= 0) {
+        pacmanSys_->reset();
         Game::instance().setState(Game::GAMEOVER);
         return;
     }
     if (currentl != pacmanSys_->getlives()) {
         Game::instance().setState(Game::NEWROUND);
         pacmanSys_->loseLife();
+        currentl = pacmanSys_->getlives();
         return;
     }
 

@@ -157,7 +157,7 @@ void PacManSystem::loseLife() {
 		resetPacManPosition();
 		if (lives_ == 0) {
 			// Cambiar a estado muerto si no quedan vidas
-			changePacManState(PacManState::DEAD);
+			//changePacManState(PacManState::DEAD);
 			// Aquí puedes agregar lógica para terminar el juego o reiniciarlo completamente
 		}
 	}

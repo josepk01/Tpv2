@@ -16,6 +16,7 @@ void PauseState::update() {
 	if (ih().keyDownEvent()) {
 		Game::instance().setState(Game::RUNNING);
 	}
+	std::cout << "pause";
 	sdlutils().clearRenderer();
 	sdlutils().presentRenderer();
 }

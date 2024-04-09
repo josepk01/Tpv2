@@ -20,6 +20,6 @@ void PauseState::update() {
 	sdlutils().presentRenderer();
 }
 
-void PauseState::leave() {
+void PauseState::exit() {
     sdlutils().virtualTimer().resume();
 }

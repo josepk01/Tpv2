@@ -10,7 +10,11 @@
 #include "../systems/PacManSystem.h"
 #include "../systems/RenderSystem.h"
 #include "../systems/GhostSystem.h"
-
+#include "GameOverState.h"
+#include "NewGameState.h"
+#include "NewRoundState.h"
+#include "PauseState.h"
+#include "RunningState.h"
 #include "../utils/Vector2D.h"
 #include "../utils/Collisions.h"
 #include "../systems/CollisionsSystem.h"
@@ -45,11 +49,14 @@ void Game::init() {
 	ghostSys_ = mngr_->addSystem<GhostSystem>();
 	collisionSys_ = mngr_->addSystem<CollisionsSystem>();
 
-	//paused_state_ = new PausedState();
-	//runing_state_ = new RunningState(*pacmanSys_, *foodSys_, *gameCtrlSys_, *renderSys_, *ghostSys_, *collisionSys_);
-	//newgame_state_ = new NewGameState();
+	paused_state_ = new PauseState();
+	runing_state_ = new RunningState();
+	newgame_state_ = new NewGameState();
 	newround_state_ = new NewRoundState();
-	//gameover_state_ = new GameOverState();
+	gameover_state_ = new GameOverState();
+
+
+	current_state_ = newgame_state_;
 }
 
 void Game::start() {

@@ -7,5 +7,5 @@ public:
     ~PauseState() override;
     void enter() override;
     void update() override;
-    void leave();
+    void exit();
 };

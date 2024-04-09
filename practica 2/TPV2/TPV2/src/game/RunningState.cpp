@@ -1,5 +1,11 @@
 #include "RunningState.h"
 #include "Game.h"
+#include "../sdlutils/InputHandler.h"
+#include "../systems/GhostSystem.h"
+#include "../systems/PacManSystem.h"
+#include "../systems/RenderSystem.h"
+#include "../systems/CollisionsSystem.h"
+#include "../systems/GameCtrlSystem.h"
 
 RunningState::RunningState() {
     // Aquí podrías inicializar recursos si es necesario
@@ -23,9 +29,31 @@ void RunningState::exit() {
 }
 
 void RunningState::update() {
-    //auto mngr = instance->getMngr();
-    ;
-    //// Ahora puedes llamar a update en todos los sistemas a través del manager
-    //// Esto asume que el manager tiene una manera de iterar sobre todos los sistemas y llamar a update, o una forma de obtener cada sistema individualmente.
-    //mngr->update();
+
+    auto mngr = Game::instance().getMngr();
+
+    if (ih().isKeyDown(SDL_SCANCODE_ESCAPE)) {
+        Game::instance().setState(Game::PAUSED);
+        return;
+    }
+
+    GameCtrlSystem* gameCtrlSys_ = mngr->getSystem<GameCtrlSystem>();
+
+    PacManSystem* pacmanSys_ = mngr->getSystem<PacManSystem>();
+    GhostSystem* ghostSys_ = mngr->getSystem<GhostSystem>();
+    FruitSystem* foodSys_ = mngr->getSystem<FruitSystem>();
+
+    RenderSystem* render_system = mngr->getSystem<RenderSystem>();
+    CollisionsSystem* collisionSys_ = mngr->getSystem<CollisionsSystem>();
+
+
+
+    gameCtrlSys_->update();
+
+	pacmanSys_->update();
+	foodSys_->update();
+	ghostSys_->update();
+	collisionSys_->update();
+    render_system->update();
+
 }

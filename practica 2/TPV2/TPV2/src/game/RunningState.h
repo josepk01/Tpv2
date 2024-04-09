@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameState.h"
-#include "../ecs/Manager.h" // Asegúrate de que este include sea correcto según tu estructura de carpetas
+#include "../ecs/Manager.h" 
 
 class RunningState : public GameState {
 public:
@@ -13,5 +13,5 @@ public:
     void update() override;
 
 private:
-    ecs::Manager* mngr_; // Asumiendo que todos los sistemas se gestionan a través de ecs::Manager
+    ecs::Manager* mngr_; 
 };

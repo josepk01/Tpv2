@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "NewRoundState.h"
 #include "../sdlutils/InputHandler.h"
+#include "../sdlutils/SDLUtils.h"
 
 void NewGameState::enter() {
     // Setup para NewGameState
@@ -15,6 +16,8 @@ void NewGameState::exit() {
 void NewGameState::update() {
     // Si el usuario pulsa cualquier tecla, cambiamos al estado NewRoundState
     if (ih().keyDownEvent()) {
-       // game->changeState(new NewRoundState());
+        Game::instance().setState(Game::PAUSED);
     }
+    sdlutils().clearRenderer();
+    sdlutils().presentRenderer();
 }

@@ -14,11 +14,11 @@ GhostSystem::~GhostSystem(){
 }
 
 void GhostSystem::remove_all_ghost() {
-	auto mngr = Game::instance().getMngr();
-	for (auto e : mngr->getEntities(ecs::grp::GHOSTS)) {
-        delete e;
-	}
-	mngr->refresh();
+    auto mngr = Game::instance().getMngr();
+    for (auto e : mngr->getEntities(ecs::grp::GHOSTS)) {
+        mngr->setAlive(e, false);
+    }
+    mngr->refresh();
     currentGhosts_ = 0;
 }
 

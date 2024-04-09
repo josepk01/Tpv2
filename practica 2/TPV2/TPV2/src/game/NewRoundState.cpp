@@ -1,7 +1,5 @@
 #include "NewRoundState.h"
-#include "Game.h"
-#include "../sdlutils/InputHandler.h"
-#include "../sdlutils/SDLUtils.h"
+
 
 
 NewRoundState::NewRoundState() : newRoundText_(nullptr) {}
@@ -17,6 +15,13 @@ void NewRoundState::enter() {
     SDL_Color color = { 255, 255, 255, 255 }; // Color blanco
     newRoundText_ = new Texture(sdlutils().renderer(), "Partida Nueva",
         sdlutils().fonts().at("ARIAL24"), color);
+
+    auto mngr = Game::instance().getMngr();
+    ghostSys_ = mngr->getSystem<GhostSystem>();
+    if (ghostSys_) {
+        ghostSys_->remove_all_ghost();
+    }
+
 
     sdlutils().clearRenderer();
     if (newRoundText_ != nullptr) {

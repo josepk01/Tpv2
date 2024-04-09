@@ -34,9 +34,9 @@ void CollisionsSystem::update() {
     // Comprobación de colisión con fantasmas
     for (auto& ghost : mngr_->getEntities(ecs::grp::GHOSTS)) {
         auto ghostTR = mngr_->getComponent<Transform>(ghost);
-        if (checkCollision(pacmanTR, ghostTR)) {
-            handleGhostCollision(pacman, ghost);
-        }
+            if (checkCollision(pacmanTR, ghostTR)) {
+                handleGhostCollision(pacman, ghost);
+            }
     }
 }
 bool CollisionsSystem::checkCollision(Transform* a, Transform* b) {

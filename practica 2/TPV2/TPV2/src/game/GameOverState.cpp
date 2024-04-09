@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "NewGameState.h"
 #include "../sdlutils/InputHandler.h"
+#include "../sdlutils/SDLUtils.h"
 
 void GameOverState::enter() {
     // Setup para GameOverState
@@ -15,6 +16,8 @@ void GameOverState::exit() {
 void GameOverState::update() {
     // Si el usuario pulsa cualquier tecla, cambiamos al estado NewGameState
     if (ih().keyDownEvent()) {
-        
+        Game::instance().setState(Game::NEWGAME);
     }
+    sdlutils().clearRenderer();
+    sdlutils().presentRenderer();
 }

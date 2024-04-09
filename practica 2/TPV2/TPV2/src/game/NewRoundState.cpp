@@ -16,9 +16,7 @@ void NewRoundState::exit() {
 }
 
 void NewRoundState::update() {
-    if (ih().keyDownEvent() && ih().isKeyDown(SDL_SCANCODE_RETURN)) {
+    if (ih().keyDownEvent()) {
         Game::instance().setState(Game::State::RUNNING); // Asume que Game::State es un enum con los estados posibles
     }
-    sdlutils().clearRenderer();
-    sdlutils().presentRenderer();
 }

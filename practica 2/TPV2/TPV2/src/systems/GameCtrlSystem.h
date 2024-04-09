@@ -2,6 +2,7 @@
 
 #pragma once
 #include "../ecs/System.h"
+#include "PacManSystem.h"
 
 class GameCtrlSystem: public ecs::System {
 public:

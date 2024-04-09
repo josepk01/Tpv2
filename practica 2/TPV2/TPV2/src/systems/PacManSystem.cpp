@@ -151,7 +151,7 @@ void PacManSystem::checkImmortalState() {
 }
 // Método para perder una vida y reiniciar o terminar el juego
 void PacManSystem::loseLife() {
-	if (lives_ > 0) {
+	if (lives_ >= 0) {
 		--lives_;
 		// Si todavía quedan vidas, reinicia la posición de Pac-Man
 		resetPacManPosition();
@@ -170,21 +170,4 @@ void PacManSystem::resetPacManPosition() {
 	auto y = (sdlutils().height() + s) / 2.0f;
 	pmTR_->init(Vector2D(x, y), Vector2D(), s, s, 0.0f);
 	changePacManState(PacManState::NORMAL);
-}
-
-// Asegúrate de llamar a loseLife() en el lugar apropiado, como en la lógica de colisión o al recibir un mensaje específico de muerte
-// Por ejemplo, en el método receive, podrías añadir un caso para manejar la muerte
-void PacManSystem::receive(const Message& m) {
-	switch (m.id) {
-	case _m_IMMUNITY_START:
-		startImmortalState();
-		break;
-	case _m_IMMUNITY_END:
-		changePacManState(PacManState::NORMAL);
-		break;
-	case _m_GAME_OVER: // Suponiendo que tienes un mensaje para cuando Pac-Man muere
-		loseLife();
-		break;
-		// Otros casos
-	}
 }

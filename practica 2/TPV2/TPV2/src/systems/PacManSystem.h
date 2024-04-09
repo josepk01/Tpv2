@@ -29,6 +29,10 @@ public:
 	void resetPacManPosition();
 	void update() override;
 	bool isInmortal();
+	int getlives()
+	{
+		return lives_;
+	}
 private:
 	Transform* pmTR_;
 	ImageWithFrames* pmImage_;
@@ -39,6 +43,6 @@ private:
 	const int frameHeight = 1028 / 8; // La hoja de sprites tiene 8 filas.
 	Uint32 immortalStartTime_; // Almacena el tiempo de inicio de la inmortalidad
 	bool isImmortal = false;
-	int lives_;
+	int lives_ = 3;
 };
 

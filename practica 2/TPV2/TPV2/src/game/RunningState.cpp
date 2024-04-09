@@ -1,15 +1,21 @@
 #include "RunningState.h"
 #include "Game.h"
-#include "../sdlutils/InputHandler.h"
-#include "../systems/GhostSystem.h"
-#include "../systems/PacManSystem.h"
-#include "../systems/RenderSystem.h"
-#include "../systems/CollisionsSystem.h"
-#include "../systems/GameCtrlSystem.h"
 
 RunningState::RunningState() {
-    // Aquí podrías inicializar recursos si es necesario
-    ;
+    auto mngr = Game::instance().getMngr();
+
+
+     gameCtrlSys_ = mngr->getSystem<GameCtrlSystem>();
+
+     pacmanSys_ = mngr->getSystem<PacManSystem>();
+     ghostSys_ = mngr->getSystem<GhostSystem>();
+     foodSys_ = mngr->getSystem<FruitSystem>();
+
+     render_system = mngr->getSystem<RenderSystem>();
+     collisionSys_ = mngr->getSystem<CollisionsSystem>();
+
+
+     currentl = pacmanSys_->getlives();
 }
 
 RunningState::~RunningState() {
@@ -19,7 +25,7 @@ RunningState::~RunningState() {
 
 void RunningState::enter() {
     // Inicialización específica del estado Running
-    // Si necesitas acceso al Manager puedes obtenerlo desde Game::instance()->getMngr()
+    // Si necesitas acceso al Manager puedes obtenerlo desde Game::instance().getMngr()
     ;
 }
 
@@ -37,14 +43,7 @@ void RunningState::update() {
         return;
     }
 
-    GameCtrlSystem* gameCtrlSys_ = mngr->getSystem<GameCtrlSystem>();
 
-    PacManSystem* pacmanSys_ = mngr->getSystem<PacManSystem>();
-    GhostSystem* ghostSys_ = mngr->getSystem<GhostSystem>();
-    FruitSystem* foodSys_ = mngr->getSystem<FruitSystem>();
-
-    RenderSystem* render_system = mngr->getSystem<RenderSystem>();
-    CollisionsSystem* collisionSys_ = mngr->getSystem<CollisionsSystem>();
 
 
 
@@ -54,6 +53,28 @@ void RunningState::update() {
 	foodSys_->update();
 	ghostSys_->update();
 	collisionSys_->update();
+
     render_system->update();
+
+
+
+    // move to pause if P pressed
+    if (ih().keyDownEvent() && ih().isKeyDown(SDL_SCANCODE_P)) {
+        Game::instance().setState(Game::PAUSED);
+        return;
+    }
+    if (foodSys_->getfruit() <= 0) {
+        Game::instance().setState(Game::GAMEOVER);
+        return;
+    }
+    if (pacmanSys_->getlives() <= 0) {
+        Game::instance().setState(Game::GAMEOVER);
+        return;
+    }
+    if (currentl != pacmanSys_->getlives()) {
+        Game::instance().setState(Game::NEWROUND);
+        pacmanSys_->loseLife();
+        return;
+    }
 
 }

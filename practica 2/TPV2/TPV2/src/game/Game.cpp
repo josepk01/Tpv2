@@ -40,7 +40,6 @@ void Game::init() {
 	// Create the manager
 	mngr_ = new Manager();
 
-
 	// add the systems
 	pacmanSys_ = mngr_->addSystem<PacManSystem>();
 	foodSys_ = mngr_->addSystem<FruitSystem>();

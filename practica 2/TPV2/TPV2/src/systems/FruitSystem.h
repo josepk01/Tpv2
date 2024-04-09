@@ -13,6 +13,10 @@ public:
     void initSystem();
     void update() override;
     void checkGameOver();
+    int getfruit()
+    {
+        return fruitCount_;
+    }
 
 private:
     void placeFruits();

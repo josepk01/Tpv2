@@ -5,10 +5,10 @@
 #include "../components/Points.h"
 #include "../ecs/Manager.h"
 #include "../sdlutils/InputHandler.h"
+
 //#include "StarsSystem.h"
 GameCtrlSystem::GameCtrlSystem() :
 		score_() {
-	// TODO Auto-generated constructor stub
 
 }
 
@@ -34,12 +34,13 @@ void GameCtrlSystem::update() {
 }
 
 void GameCtrlSystem::recieve(const Message& m) {
+    auto pacManSystem = mngr_->getSystem<PacManSystem>();
     switch (m.id) {
     case _m_PACMAN_FOOD_COLLISION:
         incrScore(10);
         break;
     case _m_PACMAN_GHOST_COLLISION:
-
+        pacManSystem->loseLife();
         break;
     case _m_IMMUNITY_START:
         // Podría activar un estado inmortal para Pac-Man

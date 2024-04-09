@@ -70,14 +70,14 @@ void CollisionsSystem::handleFruitCollision(ecs::Entity* pacman, ecs::Entity* fr
 void CollisionsSystem::handleGhostCollision(ecs::Entity* pacman, ecs::Entity* ghost) {
     auto pacmanSystem = mngr_->getSystem<PacManSystem>();
 
-    if (pacmanSystem->isInmortal()) {
+    if (!pacmanSystem->isInmortal()) {
         // Pac-Man come al fantasma y aumenta su puntuación
         Message m;
         m.id = _m_PACMAN_GHOST_COLLISION;
         m.star_eaten_data.e = ghost;
         mngr_->send(m);
     }
-    else {
+    if(pacmanSystem->getlives()<=0){
         // Pac-Man muere
         pacmanSystem->changePacManState(PacManState::DEAD);
         // Podrías querer enviar un mensaje específico aquí también

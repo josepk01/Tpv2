@@ -16,13 +16,27 @@ GhostSystem::~GhostSystem(){
 void GhostSystem::remove_all_ghost() {
 	auto mngr = Game::instance().getMngr();
 	for (auto e : mngr->getEntities(ecs::grp::GHOSTS)) {
-		mngr->setAlive(e, false);
+        delete e;
 	}
 	mngr->refresh();
+    currentGhosts_ = 0;
 }
 
-void GhostSystem::eateable_state() {
+void GhostSystem::blueColor() {
+    auto mngr = Game::instance().getMngr();
+    for (auto e : mngr->getEntities(ecs::grp::GHOSTS)) {
+        ImageWithFrames* image = mngr->getComponent<ImageWithFrames>(e);
+        std::cout << "blueColor!!";
+        image->changeAnimation(6, 8);
+    }
+}
 
+void GhostSystem::normalColor() {
+    auto mngr = Game::instance().getMngr();
+    for (auto e : mngr->getEntities(ecs::grp::GHOSTS)) {
+        ImageWithFrames* image = mngr->getComponent<ImageWithFrames>(e);
+        image->changeAnimation(4, 8);
+    }
 }
 
 void GhostSystem::update() {
@@ -67,7 +81,7 @@ void GhostSystem::generateGhost() {
             texture,
             8, 8, 0, 4,
             1028 / 8, 1028 / 8,
-            0, 0, 1, 4);
+            0, 0, 1, 4)->changeAnimation(4, 8);
 
         auto pacman = mngr->getHandler(ecs::hdlr::PACMAN);
         auto pacmanTR = mngr->getComponent<Transform>(pacman);

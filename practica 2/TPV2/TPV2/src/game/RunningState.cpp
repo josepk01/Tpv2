@@ -38,7 +38,6 @@ void RunningState::exit() {
 
 void RunningState::update() {
 
-    std::cout << "runing";
     gameCtrlSys_->update();
 
 	pacmanSys_->update();

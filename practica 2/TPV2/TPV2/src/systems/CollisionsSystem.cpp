@@ -71,7 +71,7 @@ void CollisionsSystem::handleGhostCollision(ecs::Entity* pacman, ecs::Entity* gh
     auto pacmanSystem = mngr_->getSystem<PacManSystem>();
 
     if (!pacmanSystem->isInmortal()) {
-        // Pac-Man come al fantasma y aumenta su puntuación
+        // Pac-Man pierde vida
         Message m;
         m.id = _m_PACMAN_GHOST_COLLISION;
         m.star_eaten_data.e = ghost;

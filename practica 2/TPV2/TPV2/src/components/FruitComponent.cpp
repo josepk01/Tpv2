@@ -23,12 +23,12 @@ void FruitComponent::update() {
             auto g = rand_.nextInt(0, 5);
 
             if (g == 0) {
-                Game::instance().getMngr()->getComponent<ImageWithFrames>(ent_)->changeAnimation(1, 1);
+                Game::instance().getMngr()->getComponent<ImageWithFrames>(ent_)->changeSprite(0, 3);
                 milagrosa_ = true;
             }
         }
         else {
-            Game::instance().getMngr()->getComponent<ImageWithFrames>(ent_)->changeAnimation(0, 0);
+            Game::instance().getMngr()->getComponent<ImageWithFrames>(ent_)->changeSprite(0, 0);
             milagrosa_ = false;
         }
     }

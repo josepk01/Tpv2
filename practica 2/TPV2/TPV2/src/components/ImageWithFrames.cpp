@@ -65,3 +65,11 @@ void ImageWithFrames::changeAnimation(int row, int nFrames) {
 	currFrameC_ = 0; // Reinicia al primer frame de la nueva animación.
 	lastFrameChange_ = sdlutils().virtualTimer().currTime(); // Reinicia el temporizador de cambio de frame.
 }
+
+void ImageWithFrames::changeSprite(int row, int col) {
+	currFrameR_ = row;
+	currFrameC_ = col;
+	ncol_ = 0;
+	// Reinicia el temporizador de cambio de frame
+	lastFrameChange_ = sdlutils().virtualTimer().currTime();
+}

@@ -22,6 +22,7 @@ public:
 	void update();
 	void render() override;
 	void changeAnimation(int row, int columns);
+	void changeSprite(int row, int colums);
 
 private:
 	Texture *tex_;

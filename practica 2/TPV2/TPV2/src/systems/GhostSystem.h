@@ -13,7 +13,9 @@ public:
 
 	void remove_all_ghost();
 	void update() override;
-	void eateable_state();
+	void blueColor();
+	void normalColor();
+	void decrementCurrentGhosts() { currentGhosts_--; }
 
 private:
 	void generateGhost();

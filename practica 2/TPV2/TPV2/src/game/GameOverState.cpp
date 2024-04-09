@@ -17,6 +17,10 @@ void GameOverState::enter() {
     SDL_Color color = { 255, 255, 255, 255 }; // Color blanco
     gameOverText_ = new Texture(sdlutils().renderer(), "Game Over",
         sdlutils().fonts().at("ARIAL24"), color);
+
+    sdlutils().clearRenderer();
+
+
 }
 
 void GameOverState::exit() {

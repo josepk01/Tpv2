@@ -44,7 +44,7 @@ void GameCtrlSystem::recieve(const Message& m) {
         break;
     case _m_PACMAN_GHOST_COLLISION:
         pacManSystem->loseLife();
-        ghostSystem->remove_all_ghost();
+        //ghostSystem->remove_all_ghost();
         break;
     case _m_IMMUNITY_START:
         ghostSystem->blueColor();

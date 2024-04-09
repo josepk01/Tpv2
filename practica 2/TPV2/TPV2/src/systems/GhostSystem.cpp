@@ -33,62 +33,44 @@ void GhostSystem::update() {
 }
 
 void GhostSystem::generateGhost() {
+    if (currentGhosts_ < maxGhosts_) {
+        currentGhosts_++;
 
-	if (currentGhosts_ < maxGhosts_) {
-		currentGhosts_++;
+        int spawnSide = rand_.nextInt(0, 4); // 0: Arriba izquierda, 1: Arriba derecha, 2: Abajo derecha, 3: Abajo izquierda
+        Vector2D p;
+        switch (spawnSide) {
+        case 0: // Arriba izquierda
+            p = Vector2D(0, 0);
+            break;
+        case 1: // Arriba derecha
+            p = Vector2D(width_ - 30, 0); // Asumiendo que el fantasma tiene un ancho de 30
+            break;
+        case 2: // Abajo derecha
+            p = Vector2D(width_ - 30, height_ - 30); // Asumiendo que el fantasma tiene un alto de 30
+            break;
+        case 3: // Abajo izquierda
+            p = Vector2D(0, height_ - 30);
+            break;
+        default:
+            p = Vector2D(width_ / 2, height_ / 2); // Por defecto, en caso de cualquier otro número, lo ponemos en el centro (no debería ocurrir)
+            break;
+        }
 
-		//std::cout << "ghost generar";
+        Vector2D v = Vector2D(0.0f, 0.0f); // La velocidad inicial puede ser (0,0) si los fantasmas comienzan estáticos
 
-		int spawnSide = rand_.nextInt(0, 4);
+        auto mngr = Game::instance().getMngr();
+        auto a = mngr->addEntity(ecs::grp::GHOSTS);
+        mngr->addComponent<Transform>(a, p, v, 30, 30, 0.0f); // Establece la posición 'p' calculada anteriormente
 
-		switch (spawnSide) {
-		case 0:
+        Texture* texture = &sdlutils().images().at("pacman_sprites");
+        mngr->addComponent<ImageWithFrames>(a,
+            texture,
+            8, 8, 0, 4,
+            1028 / 8, 1028 / 8,
+            0, 0, 1, 4);
 
-			break;
-		case 1:
-
-			break;
-		case 2:
-
-			break;
-		case 3:
-
-			break;
-		default:
-			break;
-		}
-
-		Vector2D p = Vector2D(width_/2, height_/2);
-
-		Vector2D v = Vector2D(0.0f, 0.0f);
-
-		auto g = rand_.nextInt(1, 4);
-
-		auto mngr = Game::instance().getMngr();
-
-		auto a = mngr->addEntity(ecs::grp::GHOSTS);
-
-		mngr->addComponent<Transform>(a, p, v, 30, 30, 0.0f);
-
-		Texture* Texture = &sdlutils().images().at("pacman_sprites");
-		mngr->addComponent<ImageWithFrames>(a, //
-			Texture, //
-			8, // Número total de columnas en la hoja de sprites.
-			8, // Número total de filas en la hoja de sprites.
-			0, // X inicial de la animación en la textura (fila de animación normal).
-			4, // Y inicial de la animación en la textura (columna de animación normal).
-			1028 / 8, // Ancho de cada frame. Hay 8 columnas
-			1028 / 8, // Alto de cada frame. Hay 8 columnas
-			0, // Columna inicial para la animación normal.
-			0, // Fila inicial para la animación normal.
-			1, // Número de columnas (frames) para la animación normal.
-			4  // Número de filas para la animación normal.
-		);
-
-		auto pacman = mngr->getHandler(ecs::hdlr::PACMAN);
-
-		auto pacmanTR = mngr->getComponent<Transform>(pacman);
-
-		mngr->addComponent<RandomFollow>(a, pacmanTR->getPos());
-	}
+        auto pacman = mngr->getHandler(ecs::hdlr::PACMAN);
+        auto pacmanTR = mngr->getComponent<Transform>(pacman);
+        mngr->addComponent<RandomFollow>(a, pacmanTR->getPos());
+    }
 }

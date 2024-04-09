@@ -49,6 +49,8 @@ void PacManSystem::initSystem() {
 
 void PacManSystem::update() {
 
+	std::cout << isImmortal;
+
 	auto &ihldr = ih();
 
 	if (ihldr.keyDownEvent()) {
@@ -142,7 +144,7 @@ void PacManSystem::startImmortalState() {
 }
 
 void PacManSystem::checkImmortalState() {
-	if (isImmortal && (SDL_GetTicks() - immortalStartTime_ >= 20000)) { // 20 segundos
+	if (isImmortal && (SDL_GetTicks() - immortalStartTime_ >= 5000)) { // 5 segundos
 		isImmortal = false;
 		Message m;
 		m.id = _m_IMMUNITY_END;

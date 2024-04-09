@@ -5,6 +5,7 @@
 #include "../ecs/Manager.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../game/Game.h"
+#include "../systems/PacManSystem.h"
 
 GhostSystem::GhostSystem() : rand_(sdlutils().rand()), width_(sdlutils().width()), height_(sdlutils().height()) {
 
@@ -26,7 +27,6 @@ void GhostSystem::blueColor() {
     auto mngr = Game::instance().getMngr();
     for (auto e : mngr->getEntities(ecs::grp::GHOSTS)) {
         ImageWithFrames* image = mngr->getComponent<ImageWithFrames>(e);
-        std::cout << "blueColor!!";
         image->changeAnimation(6, 8);
     }
 }
@@ -77,14 +77,22 @@ void GhostSystem::generateGhost() {
         mngr->addComponent<Transform>(a, p, v, 30, 30, 0.0f); // Establece la posición 'p' calculada anteriormente
 
         Texture* texture = &sdlutils().images().at("pacman_sprites");
-        mngr->addComponent<ImageWithFrames>(a,
+        ImageWithFrames* image = mngr->addComponent<ImageWithFrames>(a,
             texture,
             8, 8, 0, 4,
             1028 / 8, 1028 / 8,
-            0, 0, 1, 4)->changeAnimation(4, 8);
+            0, 0, 1, 4);
 
         auto pacman = mngr->getHandler(ecs::hdlr::PACMAN);
         auto pacmanTR = mngr->getComponent<Transform>(pacman);
         mngr->addComponent<RandomFollow>(a, pacmanTR->getPos());
+
+        PacManSystem* pacmanSys = mngr->getSystem<PacManSystem>();
+        if (!pacmanSys->isInmortal()) {
+            image->changeAnimation(4, 8);
+        }
+        else {
+            image->changeAnimation(6, 8);
+        }
     }
 }

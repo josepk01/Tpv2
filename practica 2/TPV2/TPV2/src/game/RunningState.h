@@ -2,6 +2,7 @@
 
 #include "GameState.h"
 #include "../ecs/Manager.h" 
+
 #include "../sdlutils/InputHandler.h"
 #include "../systems/GhostSystem.h"
 #include "../systems/PacManSystem.h"
@@ -23,7 +24,6 @@ private:
     int currentl;
     ecs::Manager* mngr_; 
 
-
     GameCtrlSystem* gameCtrlSys_;
 
     PacManSystem* pacmanSys_;
@@ -32,4 +32,5 @@ private:
 
     RenderSystem* render_system;
     CollisionsSystem* collisionSys_;    
+
 };

@@ -1,6 +1,7 @@
 #include "RunningState.h"
 #include "Game.h"
 
+
 RunningState::RunningState() {
     auto mngr = Game::instance().getMngr();
 
@@ -19,33 +20,27 @@ RunningState::RunningState() {
 }
 
 RunningState::~RunningState() {
-    // Aquí limpias los recursos si es necesario
+    // Aquï¿½ limpias los recursos si es necesario
     ;
 }
 
 void RunningState::enter() {
-    // Inicialización específica del estado Running
+    // Inicializaciï¿½n especï¿½fica del estado Running
     // Si necesitas acceso al Manager puedes obtenerlo desde Game::instance().getMngr()
     ;
 }
 
 void RunningState::exit() {
-    // Limpieza específica del estado Running
+    // Limpieza especï¿½fica del estado Running
     ;
 }
 
 void RunningState::update() {
 
-    auto mngr = Game::instance().getMngr();
-
     if (ih().isKeyDown(SDL_SCANCODE_ESCAPE)) {
         Game::instance().setState(Game::PAUSED);
         return;
     }
-
-
-
-
 
     gameCtrlSys_->update();
 

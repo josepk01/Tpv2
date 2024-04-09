@@ -146,6 +146,7 @@ void PacManSystem::startImmortalState() {
 void PacManSystem::checkImmortalState() {
 	if (isImmortal && (SDL_GetTicks() - immortalStartTime_ >= 5000)) { // 5 segundos
 		isImmortal = false;
+		changePacManState(PacManState::NORMAL);
 		Message m;
 		m.id = _m_IMMUNITY_END;
 		mngr_->send(m);

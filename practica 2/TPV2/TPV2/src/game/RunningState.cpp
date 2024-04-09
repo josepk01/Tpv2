@@ -65,7 +65,6 @@ void RunningState::update() {
     }
     if (currentl != pacmanSys_->getlives()) {
         Game::instance().setState(Game::NEWROUND);
-        pacmanSys_->loseLife();
         currentl = pacmanSys_->getlives();
         return;
     }

@@ -19,7 +19,13 @@ void GameOverState::enter() {
         sdlutils().fonts().at("ARIAL24"), color);
 
     sdlutils().clearRenderer();
+    // Asumiendo que ya has creado la textura "gameOverText_"
+    if (gameOverText_ != nullptr) {
+        gameOverText_->render((sdlutils().width() - gameOverText_->width()) / 2,
+            (sdlutils().height() - gameOverText_->height()) / 2);
+    }
 
+    sdlutils().presentRenderer();
 
 }
 
@@ -31,11 +37,5 @@ void GameOverState::update() {
     if (ih().keyDownEvent() && ih().keyDownEvent() && ih().isKeyDown(SDL_SCANCODE_RETURN)) {
         Game::instance().setState(Game::NEWGAME);
     }
-    // Asumiendo que ya has creado la textura "gameOverText_"
-    if (gameOverText_ != nullptr) {
-        gameOverText_->render((sdlutils().width() - gameOverText_->width()) / 2,
-            (sdlutils().height() - gameOverText_->height()) / 2);
-    }
 
-    sdlutils().presentRenderer();
 }

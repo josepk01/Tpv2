@@ -4,20 +4,36 @@
 #include "../sdlutils/InputHandler.h"
 #include "../sdlutils/SDLUtils.h"
 
-void NewGameState::enter() {
-    // Setup para NewGameState
-    // Posiblemente reiniciar alguna lógica de juego, puntuaciones, etc.
+
+NewGameState::NewGameState() : newGameText_(nullptr) {}
+
+NewGameState::~NewGameState() {
+    if (newGameText_ != nullptr) {
+        delete newGameText_;
+        newGameText_ = nullptr;
+    }
 }
 
-void NewGameState::exit() {
-    // Limpieza para NewGameState si es necesario
+void NewGameState::enter() {
+    SDL_Color color = { 255, 255, 255, 255 }; // Color blanco
+    newGameText_ = new Texture(sdlutils().renderer(), "Juego Nuevo",
+        sdlutils().fonts().at("ARIAL24"), color);
+
+    sdlutils().clearRenderer();
+    if (newGameText_ != nullptr) {
+        newGameText_->render((sdlutils().width() - newGameText_->width()) / 2,
+            (sdlutils().height() - newGameText_->height()) / 2);
+    }
+    sdlutils().presentRenderer();
 }
 
 void NewGameState::update() {
-    // Si el usuario pulsa cualquier tecla, cambiamos al estado NewRoundState
     if (ih().keyDownEvent()) {
         Game::instance().setState(Game::NEWROUND);
     }
-    sdlutils().clearRenderer();
-    sdlutils().presentRenderer();
+}
+
+void NewGameState::exit() {
+    delete newGameText_;
+    newGameText_ = nullptr;
 }

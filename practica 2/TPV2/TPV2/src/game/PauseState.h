@@ -1,6 +1,6 @@
 #pragma once
 #include "GameState.h"
-
+#include "../sdlutils/Texture.h"
 class PauseState : public GameState {
 public:
     PauseState();
@@ -8,4 +8,6 @@ public:
     void enter() override;
     void update() override;
     void exit();
+private:
+    Texture* pauseText_;
 };

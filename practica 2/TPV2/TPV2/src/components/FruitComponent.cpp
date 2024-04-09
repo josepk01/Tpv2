@@ -20,7 +20,7 @@ void FruitComponent::update() {
         timer_.reset();
         if (!milagrosa_) {
             // Actualizamos a fruta milagrosa si se da la probabilidad
-            auto g = rand_.nextInt(0, 5);
+            auto g = rand_.nextInt(0, 20);
 
             if (g == 0) {
                 Game::instance().getMngr()->getComponent<ImageWithFrames>(ent_)->changeSprite(0, 3);

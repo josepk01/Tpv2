@@ -79,9 +79,7 @@ void Game::start() {
 			continue;
 		}
 
-		sdlutils().clearRenderer();
 		current_state_->update();
-		sdlutils().presentRenderer();
 		mngr_->refresh();
 
 

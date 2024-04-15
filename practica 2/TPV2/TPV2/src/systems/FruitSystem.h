@@ -11,19 +11,21 @@ public:
     virtual ~FruitSystem();
 
     void initSystem();
+    void deletefruits();
     void update() override;
     void checkGameOver();
     int getfruit()
     {
         return fruitCount_;
     }
-
+    void eat();
 private:
     void placeFruits();
     bool isMiraculous(int x, int y); // Decide si una fruta en posición x, y es milagrosa
+
     int gridWidth_; // Ancho del grid de frutas
     int gridHeight_; // Alto del grid de frutas
-    int fruitCount_; // Contador de frutas restantes
+    int fruitCount_ = 0; // Contador de frutas restantes
 
     int maxWidth = 800 / gridWidth_; // Ancho máximo disponible para cada fruta
     int maxHeight = 600 / gridHeight_; // Alto máximo disponible para cada fruta

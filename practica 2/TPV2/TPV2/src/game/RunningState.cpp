@@ -18,6 +18,7 @@ RunningState::RunningState() {
 
 
      currentl = pacmanSys_->getlives();
+     pacmanSys_->changePacManState(PacManState::NORMAL);
 }
 
 RunningState::~RunningState() {
@@ -54,10 +55,16 @@ void RunningState::update() {
         return;
     }
     if (foodSys_->getfruit() <= 0) {
+        foodSys_->initSystem();
+        pacmanSys_->reset();
+        gameCtrlSys_->setScore(0);
         Game::instance().setState(Game::GAMEOVER);
         return;
     }
     if (pacmanSys_->getlives() <= 0) {
+        foodSys_->deletefruits();
+        foodSys_->initSystem();
+        gameCtrlSys_->setScore(0);
         pacmanSys_->reset();
         Game::instance().setState(Game::GAMEOVER);
         return;

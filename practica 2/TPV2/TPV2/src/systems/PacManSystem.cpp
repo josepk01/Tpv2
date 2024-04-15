@@ -57,19 +57,19 @@ void PacManSystem::update() {
 
 		if (ihldr.isKeyDown(SDL_SCANCODE_RIGHT)) { // rotate right
 			pmTR_->rot_ = 90.0f;
-			pmTR_->vel_ = Vector2D(SPEED * 0.1, 0);
+			pmTR_->vel_ = Vector2D(SPEED * 0.2, 0);
 
 		} else if (ihldr.isKeyDown(SDL_SCANCODE_LEFT)) { // rotate left
 			pmTR_->rot_ = -90.0f;
-			pmTR_->vel_ = Vector2D(-SPEED * 0.1, 0);
+			pmTR_->vel_ = Vector2D(-SPEED * 0.2, 0);
 
 		} else if (ihldr.isKeyDown(SDL_SCANCODE_UP)) { // increase speed
 			pmTR_->rot_ = 0.0f;
-			pmTR_->vel_ = Vector2D(0, -SPEED * 0.1);
+			pmTR_->vel_ = Vector2D(0, -SPEED * 0.2);
 
 		} else if (ihldr.isKeyDown(SDL_SCANCODE_DOWN)) { // decrease speed
 			pmTR_->rot_ = 180.0f;
-			pmTR_->vel_ = Vector2D(0, SPEED * 0.1);
+			pmTR_->vel_ = Vector2D(0, SPEED * 0.2);
 		}
 
 	}
@@ -161,7 +161,6 @@ void PacManSystem::loseLife() {
 
 		if (lives_ == 0) {
 			// Cambiar a estado muerto si no quedan vidas
-			reset();
 			changePacManState(PacManState::DEAD);
 			// Aquí puedes agregar lógica para terminar el juego o reiniciarlo completamente
 		}

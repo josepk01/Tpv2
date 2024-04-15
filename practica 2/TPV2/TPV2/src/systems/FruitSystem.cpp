@@ -19,7 +19,11 @@ FruitSystem::~FruitSystem() {
 void FruitSystem::initSystem() {
     placeFruits();
 }
-
+void FruitSystem::deletefruits() {
+    for (auto& fruit : mngr_->getEntities(ecs::grp::FRUITS)) {
+        mngr_->setAlive(fruit, false);
+    }
+}
 void FruitSystem::update() {
     // Actualiza el estado de las frutas milagrosas aquí si es necesario
 }
@@ -85,4 +89,8 @@ void FruitSystem::placeFruits() {
 bool FruitSystem::isMiraculous(int x, int y) {
     // Implementa tu lógica para determinar si una fruta es milagrosa
     return false; // Ejemplo
+}
+
+void FruitSystem::eat() {
+    fruitCount_--;
 }

@@ -7,6 +7,7 @@
 #include "../sdlutils/InputHandler.h"
 #include "../systems/GhostSystem.h"
 #include "PacManSystem.h"
+#include "FruitSystem.h"
 
 //#include "StarsSystem.h"
 GameCtrlSystem::GameCtrlSystem() :
@@ -38,13 +39,14 @@ void GameCtrlSystem::update() {
 void GameCtrlSystem::recieve(const Message& m) {
     auto pacManSystem = mngr_->getSystem<PacManSystem>();
     auto ghostSystem = mngr_->getSystem<GhostSystem>();
+    auto fruitSys = mngr_->getSystem<FruitSystem>();
     switch (m.id) {
     case _m_PACMAN_FOOD_COLLISION:
         incrScore(10);
+        fruitSys->eat();
         break;
     case _m_PACMAN_GHOST_COLLISION:
         pacManSystem->loseLife();
-
         break;
     case _m_IMMUNITY_START:
         ghostSystem->blueColor();

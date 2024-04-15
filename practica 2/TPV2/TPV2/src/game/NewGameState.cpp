@@ -29,6 +29,7 @@ void NewGameState::enter() {
 
 void NewGameState::update() {
     if (ih().keyDownEvent()) {
+
         Game::instance().setState(Game::NEWROUND);
     }
 }

@@ -33,7 +33,12 @@ void Fighter::addPlayer(std::uint8_t id) {
 }
 
 void Fighter::initPlayer(std::uint8_t id) {
-	assert(id < players_.size() && players_[id].state == NOT_USED);
+	assert(id < max_player);
+
+	if (players_[id].state != NOT_USED)
+	{
+
+	}
 
 	auto &rand = sdlutils().rand();
 

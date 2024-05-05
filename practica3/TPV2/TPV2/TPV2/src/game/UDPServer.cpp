@@ -83,89 +83,99 @@ void UDPServer::listen() {
 					// now we have a switch depending on the kind of message
 					switch (m0._type) {
 
-					// for future use ...
-					case _NONE:
-						break;
+						// for future use ...
+						case _NONE:
+							break;
 
-						// the message is a connection request
-					case _CONNECTION_REQUEST: {
+							// the message is a connection request
+						case _CONNECTION_REQUEST: {
 
-						// seek a free slot
-						Uint8 j = 0;
-						while (j < max_clients_ && clients_[j].connected)
-							j++;
+							// seek a free slot
+							Uint8 j = 0;
+							while (j < max_clients_ && clients_[j].connected)
+								j++;
 
-						// if a free slot is found we will have j < MAX_CLIENT
-						if (j < max_clients_) {
+							if (j < max_clients_) {
+								// Slot encontrado, configurar como conectado
+								clients_[j].connected = true;
+								clients_[j].address = p_->address;
 
-							// make the slot connected, and store the client's address
-							clients_[j].connected = true;
-							clients_[j].address = p_->address;
+								// send a message to the client indicating that the connection was accepted
+								m2._type = _CONNECTION_ACCEPTED;
+								m2._client_id = j;
+								m2._master_id = who_is_the_master(); // will not return -1 for sure
+								SDLNetUtils::serializedSend(m2, p_, sock_); // IP is already in p_->address
 
-							// send a message to the client indicating that the connection was accepted
-							m2._type = _CONNECTION_ACCEPTED;
-							m2._client_id = j;
-							m2._master_id = who_is_the_master(); // will not return -1 for sure
-							SDLNetUtils::serializedSend(m2, p_, sock_); // IP is already in p_->address
+								// tell all clients, except the sender, that a new client connected
+								m2._type = _NEW_CLIENT_CONNECTED;
+								send_to_all_excpet(m2, m2._client_id);
 
-							// tell all clients, except the sender, that a new client connected
-							m2._type = _NEW_CLIENT_CONNECTED;
-							send_to_all_excpet(m2, m2._client_id);
+								// print information
+								std::cout << "New client with id " << (int) j
+										<< " connected from ";
+								SDLNetUtils::print_ip(p_->address, true);
 
-							// print information
-							std::cout << "New client with id " << (int) j
-									<< " connected from ";
-							SDLNetUtils::print_ip(p_->address, true);
+								for (Uint8 i = 0; i < max_clients_; i++) {
+									if (clients_[i].connected && i != j) {  // No enviar la información del propio cliente
+										MsgWithMasterId msg;
+										msg._type = _NEW_CLIENT_CONNECTED;
+										msg._client_id = i;
+										msg._master_id = who_is_the_master();
+										p_->address = clients_[j].address; // dirección del nuevo cliente
+										SDLNetUtils::serializedSend(msg, p_, sock_);
+									}
+								}
 
-						} else {
-							// if not free slots, send a message to the client rejecting the connection
-							m0._type = _CONNECTION_REJECTED;
-							SDLNetUtils::serializedSend(m0, p_, sock_); // IP is already in p_->address
-						}
-						break;
-						std::cout << "a ver como estan los clientes:" << std::endl;
-						for (Uint8 i = 0; i < max_clients_; i++) {
-							std::cout << "Client " << (int)i << ": " << clients_[i].connected << std::endl;
-							clients_[i].connected = false;
-						}
-					}
-
-						// the message is a client informing about disconnection
-					case _DISCONNECTED: {
-
-						// we need to deserialize again since we have des wrt Msg only
-						m1.deserialize(p_->data);
-
-						// mark the corresponding slot as free.
-						clients_[m1._client_id].connected = false;
-
-						// the new master, if any ...
-						int the_master = who_is_the_master();
-
-						if (the_master != -1) {
-
-							m2._type = m1._type;
-							m2._client_id = m1._client_id;
-							m2._master_id = the_master;
-
-							// tell all clients that someone has disconnected, and who is the new master
-							send_to_all_excpet(m2);
+							} else {
+								// if not free slots, send a message to the client rejecting the connection
+								m0._type = _CONNECTION_REJECTED;
+								SDLNetUtils::serializedSend(m0, p_, sock_); // IP is already in p_->address
+							}
+							break;
+							std::cout << "a ver como estan los clientes:" << std::endl;
+							for (Uint8 i = 0; i < max_clients_; i++) {
+								std::cout << "Client " << (int)i << ": " << clients_[i].connected << std::endl;
+								clients_[i].connected = false;
+							}
 						}
 
-						std::cout << "Client  " << (int) m1._client_id
-								<< " disconnected " << std::endl;
+							// the message is a client informing about disconnection
+						case _DISCONNECTED: {
 
-						break;
-					}
+							// we need to deserialize again since we have des wrt Msg only
+							m1.deserialize(p_->data);
 
-					default: {
-						// just forward the message to all clients -- the message must be a subtype
-						// of MsgWithId
+							// mark the corresponding slot as free.
+							clients_[m1._client_id].connected = false;
 
-						// we need to deserialize again since m0 does not have the id
-						send_packet_to_all_excpet(); // the message is already in the packet
-						break;
-					}
+							// the new master, if any ...
+							int the_master = who_is_the_master();
+
+							if (the_master != -1) {
+
+								m2._type = m1._type;
+								m2._client_id = m1._client_id;
+								m2._master_id = the_master;
+
+								// tell all clients that someone has disconnected, and who is the new master
+								send_to_all_excpet(m2);
+							}
+
+							std::cout << "Client  " << (int) m1._client_id
+									<< " disconnected " << std::endl;
+
+							break;
+						}
+
+						default: {
+							// just forward the message to all clients -- the message must be a subtype
+							// of MsgWithId
+
+							// we need to deserialize again since m0 does not have the id
+							send_packet_to_all_excpet(); // the message is already in the packet
+							break;
+						}
+
 					}
 
 				}

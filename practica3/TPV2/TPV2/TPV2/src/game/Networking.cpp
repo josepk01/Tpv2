@@ -9,6 +9,7 @@
 #include "netwrok_messages.h"
 #include "../sdlutils/SDLNetUtils.h"
 #include "../../src/utils/Vector2D.h"
+#include "UDPServer.h"
 Networking::Networking() :
 		sock_(), //
 		socketSet_(), //
@@ -146,6 +147,7 @@ void Networking::update() {
 		default:
 			break;
 		}
+
 	}
 }
 

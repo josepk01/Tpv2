@@ -6,6 +6,7 @@
 
 #include "netwrok_messages.h"
 class Vector2D;
+class UDPServer;
 
 class Networking {
 public:
@@ -15,6 +16,8 @@ public:
 	bool init(char *host, Uint16 port);
 	bool disconnect();
 	void update();
+
+	void update_player_state(const PlayerStateMsg& state);
 
 	Uint8 client_id() {
 		return clientId_;

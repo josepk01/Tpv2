@@ -87,8 +87,9 @@ void Game::start() {
 		little_wolf_->update();
 		net_->update();
 
+		//net_->send_state(little_wolf_->get_x(), little_wolf_->get_x());
 		// the clear is not necessary since we copy the whole texture -- I guess ...
-		//sdlutils().clearRenderer();
+		sdlutils().clearRenderer();
 
 		little_wolf_->render();
 

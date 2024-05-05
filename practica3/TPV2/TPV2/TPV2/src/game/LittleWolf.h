@@ -117,6 +117,14 @@ public:
 	// load a map from a file
 	void load(std::string filename);
 
+	int get_x()
+	{
+		return players_->where.x;
+	}
+	int get_y()
+	{
+		return players_->where.y;
+	}
 	// add a new player with identifier <id>, returns false if the id is already occupied
 	bool addPlayer(std::uint8_t id);
 

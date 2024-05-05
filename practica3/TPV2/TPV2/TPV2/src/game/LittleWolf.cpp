@@ -12,6 +12,7 @@
 
 #include "Game.h"
 #include "Networking.h"
+#include "UDPServer.h"
 //#include "/s"
 //#include "src/sdlutils/InputHandler.h"
 //#include "../src/sdlutils/macros.h"
@@ -51,6 +52,7 @@ void LittleWolf::update() {
 	spin(p);  // handle spinning
 	move(p);  // handle moving
 	shoot(p); // handle shooting
+	Game::instance()->getnetworking().send_state(p.where.x,p.where.y);
 }
 
 void LittleWolf::load(std::string filename) {
@@ -493,6 +495,7 @@ bool LittleWolf::shoot(Player &p) {
 			if (hit.tile > 9 && mag(sub(p.where, hit.where)) < shoot_distace) {
 				uint8_t id = tile_to_player(hit.tile);
 				players_[id].state = DEAD;
+				killPlayer(id);
 				sdlutils().soundEffects().at("pain").play();
 				return true;
 			}
@@ -531,22 +534,26 @@ void LittleWolf::send_my_info() {
 
 void LittleWolf::removePlayer(std::uint8_t id) {
 	players_[id].state = LittleWolf::NOT_USED;
+	map_.walling[(int)players_[id].where.y][(int)players_[id].where.x] = 0;
+	send_my_info();
 }
 
 
 void LittleWolf::update_player_state(Uint8 id, float x, float y) {
 
 	Player& p = players_[id];
-
+	map_.walling[(int)players_[id].where.y][(int)players_[id].where.x] = 0;
 	p.where.x = x;
 	p.where.y = y;
 
 	p.id = id;
-
+	map_.walling[(int)p.where.y][(int)p.where.x] = player_to_tile(id);
 }
 
 void LittleWolf::killPlayer(std::uint8_t id) {
 	players_[id].state = LittleWolf::DEAD;
+	Game::instance()->getnetworking().send_dead(id);
+
 }
 
 void LittleWolf::update_player_info(Uint8 id, float x, float y, uint8_t state) {
@@ -560,4 +567,5 @@ void LittleWolf::update_player_info(Uint8 id, float x, float y, uint8_t state) {
 	//p.height = h;
 	//p.rot = rot;
 	p.state = static_cast<PlayerState>(state);
+	map_.walling[(int)p.where.y][(int)p.where.x] = player_to_tile(id);
 }

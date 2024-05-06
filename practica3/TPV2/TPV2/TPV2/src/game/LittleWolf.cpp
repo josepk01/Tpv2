@@ -573,7 +573,10 @@ bool LittleWolf::shoot(Player& p) {
 	if (ihdrl.keyDownEvent() && ihdrl.isKeyDown(SDL_SCANCODE_SPACE)) {
 		sdlutils().soundEffects().at("gunshot").play();
 
-		const Point direction = lerp(p.fov, 0.5f); // Ajustar para usar la dirección correcta.
+		const Line camera = rotate(p.fov, p.theta);
+		Point direction = lerp(camera, 0.5f);
+		direction.x = direction.x / mag(direction);
+		direction.y = direction.y / mag(direction);
 
 		// Crear un Vector2D a partir del Point direction.
 		Vector2D directionVec(direction.x, direction.y);
@@ -593,7 +596,7 @@ void LittleWolf::kill(Point shoot_origin, Point direction, Point hit_point) {
 	// Asumiendo que 'cast' ajusta el punto final de la trayectoria basado en la colisión detectada
 
 	const Hit hit = cast(shoot_origin, direction, map_.walling, false, true);
-	Game::instance()->getnetworking().send_shoot({ players_->where.x, players_->where.y }, { hit.where.x, hit.where.y });
+	//Game::instance()->getnetworking().send_shoot({ players_->where.x, players_->where.y }, { hit.where.x, hit.where.y });
 	if (hit.tile > 9 && mag(sub(shoot_origin, hit.where)) < shoot_distace) {
 
 		//send_shoot({ m.x, m.y }, {hit_point.x, hit_point.y});

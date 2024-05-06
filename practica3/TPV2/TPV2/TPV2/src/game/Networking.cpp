@@ -185,12 +185,13 @@ void Networking::send_shoot(const Vector2D& position, const Vector2D& direction)
 	m.y = position.getY();
 	m.vx = direction.getX();
 	m.vy = direction.getY();
+	m.rot =
 	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
 }
 
 
 void Networking::handle_shoot(const ShootMsg &m) {
-	if (is_master()) {
+	/*if (is_master()) {*/
 
 
 		LittleWolf::Point shoot_origin = { m.x, m.y };
@@ -198,7 +199,7 @@ void Networking::handle_shoot(const ShootMsg &m) {
 		LittleWolf::Point hit_point = { shoot_origin.x + direction.x, shoot_origin.y + direction.y };
 
 		Game::instance()->get_littlewolf().kill(shoot_origin, direction, hit_point);
-	}
+	
 }
 
 

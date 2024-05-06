@@ -114,6 +114,8 @@ public:
 			SDL_Renderer *render);
 	virtual ~LittleWolf();
 
+	void renderRestartMessage();
+
 	// load a map from a file
 	void load(std::string filename);
 
@@ -150,18 +152,24 @@ public:
 	// update the world, tec
 	void update();
 
+	void prepareGameRestart();
+
+	void kill(Point shoot_origin, Point direction, Point hit_point);
+
+
 private:
 
 	// Calculates wall size using the <corrected> ray to the wall.
 	Wall project(const int xres, const int yres, const float focal,
 			const Point corrected);
-
 	// Casts a ray from <where> in unit <direction> until a <walling> tile is hit.
-	Hit cast(const Point where, Point direction, uint8_t **walling,
-			bool ignore_players, bool ignore_deads);
+	Hit cast(const Point where, Point direction, uint8_t** walling,
+		bool ignore_players, bool ignore_deads);
 
 	// Moves the player when w,a,s,d are held down. Handles collision detection for the walls.
 	bool shoot(Player &p);
+
+
 
 	// Spins the player when keys grid_h,l are held down. When left-shit is held down the move is slower
 	inline void spin(Player &p);
@@ -380,6 +388,11 @@ private:
 	// array of players
 	Player players_[max_player];
 
+	bool rest = false;
+	bool showMessage = false;
+	bool restartInitiated = false;
+	float messageTimer = 0;
+	int timeLeft = 5;
 	// id of the current player, used since we allows switching between players
 	uint8_t player_id_;
 

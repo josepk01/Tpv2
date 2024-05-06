@@ -17,8 +17,6 @@ public:
 	bool disconnect();
 	void update();
 
-	void update_player_state(const PlayerStateMsg& state);
-
 	Uint8 client_id() {
 		return clientId_;
 	}
@@ -29,8 +27,8 @@ public:
 
 	void send_state(float x, float y);
 	void send_my_info(float x, float y, Uint8 state);
-	
-	void send_shoot(Vector2D p, Vector2D v, int width, int height, float r);
+	void send_shoot(const Vector2D& position, const Vector2D& direction);
+
 	void send_dead(Uint8 id);
 	void send_restart();
 
@@ -39,6 +37,7 @@ private:
 	void handle_new_client(Uint8 id);
 	void handle_disconnet(Uint8 id);
 	void handle_player_state(const PlayerStateMsg &m);
+
 	void handle_player_info(const PlayerInfoMsg &m);
 	void handle_shoot(const ShootMsg &m);
 	void handle_dead(const MsgWithId &m);

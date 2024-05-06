@@ -177,26 +177,30 @@ void Networking::handle_player_state(const PlayerStateMsg &m) {
 	}
 }
 
-void Networking::send_shoot(Vector2D p, Vector2D v, int width, int height,
-		float r) {
+void Networking::send_shoot(const Vector2D& position, const Vector2D& direction) {
 	ShootMsg m;
 	m._type = _SHOOT;
 	m._client_id = clientId_;
-	m.x = p.getX();
-	m.y = p.getY();
-	m.vx = v.getX();
-	m.vy = v.getY();
-	m.w = width;
-	m.h = height;
-	m.rot = r;
+	m.x = position.getX();
+	m.y = position.getY();
+	m.vx = direction.getX();
+	m.vy = direction.getY();
 	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
 }
 
-void Networking::handle_shoot(const ShootMsg &m) {
-	/*Game::instance()->get_bullets().shoot(Vector2D(m.x, m.y),
-			Vector2D(m.vx, m.vy), m.w, m.h, m.rot);*/
 
+void Networking::handle_shoot(const ShootMsg &m) {
+	if (is_master()) {
+
+
+		LittleWolf::Point shoot_origin = { m.x, m.y };
+		LittleWolf::Point direction = { m.vx, m.vy };
+		LittleWolf::Point hit_point = { shoot_origin.x + direction.x, shoot_origin.y + direction.y };
+
+		Game::instance()->get_littlewolf().kill(shoot_origin, direction, hit_point);
+	}
 }
+
 
 void Networking::send_dead(Uint8 id) {
 	MsgWithId m;
@@ -207,6 +211,8 @@ void Networking::send_dead(Uint8 id) {
 
 void Networking::handle_dead(const MsgWithId &m) {
 	Game::instance()->get_littlewolf().killPlayer(m._client_id);
+
+
 }
 
 void Networking::send_my_info(float x , float y, Uint8 state) {
@@ -235,6 +241,8 @@ void Networking::send_restart() {
 }
 
 void Networking::handle_restart() {
-	Game::instance()->get_littlewolf().bringAllToLife();
+
+
+	Game::instance()->get_littlewolf().prepareGameRestart();
 
 }

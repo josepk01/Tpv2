@@ -41,6 +41,7 @@ LittleWolf::~LittleWolf() {
 	// nothing to delete, the walling are delete in the Map's destructor
 }
 
+
 void LittleWolf::update() {
 
 	Player &p = players_[player_id_];
@@ -48,12 +49,72 @@ void LittleWolf::update() {
 	// dead player don't move/spin/shoot
 	if (p.state != ALIVE)
 		return;
+	if (!rest)
+	{
+		spin(p);  // handle spinning
+		move(p);  // handle moving
+		shoot(p); // handle shooting
+		Game::instance()->getnetworking().send_state(p.where.x, p.where.y);
+	}
+	else
+	{
+		prepareGameRestart();
+	}
 
-	spin(p);  // handle spinning
-	move(p);  // handle moving
-	shoot(p); // handle shooting
-	Game::instance()->getnetworking().send_state(p.where.x,p.where.y);
+
 }
+void LittleWolf::prepareGameRestart() {
+	 // Asumiendo que existe una variable booleana `showMessage`
+	if (messageTimer == 0)
+	{
+		showMessage = true;
+		messageTimer = SDL_GetTicks(); // Comienza a contar el tiempo para el mensaje
+
+	}
+
+}
+
+
+void LittleWolf::renderRestartMessage() {
+	// Calcular el tiempo restante para el reinicio
+	int timeLeft = 5 - (SDL_GetTicks() - messageTimer) / 1000;
+	std::string restartMessage = "The game will restart in " + std::to_string(timeLeft) + " seconds";
+
+	// Usar Texture para renderizar el mensaje de reinicio
+	Texture restartText(sdlutils().renderer(), restartMessage,
+		sdlutils().fonts().at("ARIAL24"), build_sdlcolor(0xFFFFFFFF));
+
+	SDL_Rect restartDest = build_sdlrect(100, 100, restartText.width(), restartText.height());
+	restartText.render(restartDest);
+
+	// Renderizar la información de los jugadores como antes
+	uint_fast16_t y = restartDest.y + restartText.height() + 20; // Espacio adicional después del mensaje de reinicio
+
+	for (auto i = 0u; i < max_player; i++) {
+		PlayerState s = players_[i].state;
+		if (s != NOT_USED) {
+			std::string msg = (i == player_id_ ? "*P" : " P") + std::to_string(i) + (s == DEAD ? " (dead)" : "");
+
+			Texture info(sdlutils().renderer(), msg,
+				sdlutils().fonts().at("ARIAL24"),
+				build_sdlcolor(color_rgba(i + 10)));
+
+			SDL_Rect dest = build_sdlrect(0, y, info.width(), info.height());
+			info.render(dest);
+			y += info.height() + 5;
+		}
+	}
+	if (timeLeft <= 0)
+	{
+		timeLeft = 5;
+		messageTimer = 0;
+		showMessage = false;
+		rest = false;
+		bringAllToLife();
+	}
+
+}
+
 
 void LittleWolf::load(std::string filename) {
 	std::ifstream in(filename);
@@ -187,7 +248,7 @@ bool LittleWolf::addPlayer(std::uint8_t id) {
 	players_[id] = p;
 
 	player_id_ = id;
-
+	send_my_info();
 	return true;
 }
 
@@ -198,6 +259,10 @@ void LittleWolf::render() {
 		render_upper_view();
 	else
 		render_map(players_[player_id_]);
+
+	if (showMessage) {
+		renderRestartMessage(); 
+	}
 
 	// render the identifiers, state, etc
 	render_players_info();
@@ -467,42 +532,77 @@ void LittleWolf::spin(Player &p) {
 		p.theta += d;
 }
 
-bool LittleWolf::shoot(Player &p) {
-	auto &ihdrl = ih();
+//bool LittleWolf::shoot(Player &p) {
+//	auto &ihdrl = ih();
+//
+//	// Space shoot -- we use keyDownEvent to force a complete press/release for each bullet
+//	if (ihdrl.keyDownEvent() && ihdrl.isKeyDown(SDL_SCANCODE_SPACE)) {
+//
+//		// play gun shot sound
+//		sdlutils().soundEffects().at("gunshot").play();
+//
+//		// we shoot in several directions, because with projection what you see is not exact
+//		for (float d = -0.05; d <= 0.05; d += 0.005) {
+//
+//			// search which tile was hit
+//			const Line camera = rotate(p.fov, p.theta + d);
+//			Point direction = lerp(camera, 0.5f);
+//			direction.x = direction.x / mag(direction);
+//			direction.y = direction.y / mag(direction);
+//			const Hit hit = cast(p.where, direction, map_.walling, false, true);
+//
+//#if _DEBUG
+//			printf("Shoot by player %d hit a tile with value %d! at distance %f\n", p.id, hit.tile, mag(sub(p.where, hit.where)));
+//#endif
+//			Game::instance()->getnetworking().send_shoot({ players_->where.x, players_->where.y }, {hit.where.x, hit.where.y});
+//			 //if we hit a tile with a player id and the distance from that tile is smaller
+//			 //than shoot_distace, we mark the player as dead
+//			if (hit.tile > 9 && mag(sub(p.where, hit.where)) < shoot_distace) {
+//				uint8_t id = tile_to_player(hit.tile);
+//				Game::instance()->getnetworking().send_dead(id);
+//				sdlutils().soundEffects().at("pain").play();
+//				return true;
+//			}
+//		}
+//	}
+//	return false;
+//}
+bool LittleWolf::shoot(Player& p) {
+	auto& ihdrl = ih();
 
-	// Space shoot -- we use keyDownEvent to force a complete press/release for each bullet
 	if (ihdrl.keyDownEvent() && ihdrl.isKeyDown(SDL_SCANCODE_SPACE)) {
-
-		// play gun shot sound
 		sdlutils().soundEffects().at("gunshot").play();
 
-		// we shoot in several directions, because with projection what you see is not exact
-		for (float d = -0.05; d <= 0.05; d += 0.005) {
+		const Point direction = lerp(p.fov, 0.5f); // Ajustar para usar la dirección correcta.
 
-			// search which tile was hit
-			const Line camera = rotate(p.fov, p.theta + d);
-			Point direction = lerp(camera, 0.5f);
-			direction.x = direction.x / mag(direction);
-			direction.y = direction.y / mag(direction);
-			const Hit hit = cast(p.where, direction, map_.walling, false, true);
+		// Crear un Vector2D a partir del Point direction.
+		Vector2D directionVec(direction.x, direction.y);
 
-#if _DEBUG
-			printf("Shoot by player %d hit a tile with value %d! at distance %f\n", p.id, hit.tile,mag(sub(p.where, hit.where)));
-#endif
+		// Enviar la posición y dirección del disparo al servidor o al máster.
+		Game::instance()->getnetworking().send_shoot({ p.where.x, p.where.y }, directionVec);
 
-			// if we hit a tile with a player id and the distance from that tile is smaller
-			// than shoot_distace, we mark the player as dead
-			if (hit.tile > 9 && mag(sub(p.where, hit.where)) < shoot_distace) {
-				uint8_t id = tile_to_player(hit.tile);
-				players_[id].state = DEAD;
-				killPlayer(id);
-				sdlutils().soundEffects().at("pain").play();
-				return true;
-			}
-		}
+		return true; // Disparo realizado, el resultado se manejará en respuesta del servidor.
 	}
 	return false;
 }
+
+void LittleWolf::kill(Point shoot_origin, Point direction, Point hit_point) {
+
+
+
+	// Asumiendo que 'cast' ajusta el punto final de la trayectoria basado en la colisión detectada
+
+	const Hit hit = cast(shoot_origin, direction, map_.walling, false, true);
+	Game::instance()->getnetworking().send_shoot({ players_->where.x, players_->where.y }, { hit.where.x, hit.where.y });
+	if (hit.tile > 9 && mag(sub(shoot_origin, hit.where)) < shoot_distace) {
+
+		//send_shoot({ m.x, m.y }, {hit_point.x, hit_point.y});
+		uint8_t id = tile_to_player(hit.tile);
+			Game::instance()->getnetworking().send_dead(id);
+			sdlutils().soundEffects().at("pain").play();
+	}
+}
+
 
 void LittleWolf::switchToNextPlayer() {
 
@@ -518,11 +618,9 @@ void LittleWolf::switchToNextPlayer() {
 
 void LittleWolf::bringAllToLife() {
 	// bring all dead players to life -- all stay in the same position
-	for (auto i = 0u; i < max_player; i++) {
-		if (players_[i].state == DEAD) {
-			players_[i].state = ALIVE;
-		}
-	}
+	removePlayer(player_id_);
+	addPlayer(player_id_);
+
 }
 
 
@@ -552,8 +650,25 @@ void LittleWolf::update_player_state(Uint8 id, float x, float y) {
 
 void LittleWolf::killPlayer(std::uint8_t id) {
 	players_[id].state = LittleWolf::DEAD;
-	Game::instance()->getnetworking().send_dead(id);
 
+	if (Game::instance()->getnetworking().is_master())
+	{
+		int alive = 0, deaths = 0, notUsed = 0;
+		for (int i = 0; i < max_player && alive < 2; i++) {
+			if (players_[i].state == ALIVE) alive++;
+			else if (players_[i].state == DEAD) deaths++;
+			else if (players_[i].state == NOT_USED) notUsed++;
+		}
+		std::cout << "Fuera: " << alive << " " << deaths << " " << deaths << "\n";
+
+
+		if (alive == 1 && (deaths + alive == max_player - notUsed)) {
+			std::cout << "Dentro: " << alive << " " << deaths << " " << deaths << "\n";
+			Game::instance()->getnetworking().send_restart();
+			messageTimer = 0;
+			rest = true;
+		}
+	}
 }
 
 void LittleWolf::update_player_info(Uint8 id, float x, float y, uint8_t state) {

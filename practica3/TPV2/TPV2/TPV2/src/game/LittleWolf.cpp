@@ -685,5 +685,5 @@ void LittleWolf::update_player_info(Uint8 id, float x, float y, uint8_t state) {
 	//p.height = h;
 	//p.rot = rot;
 	p.state = static_cast<PlayerState>(state);
-	map_.walling[(int)p.where.y][(int)p.where.x] = player_to_tile(id);
+	map_.walling[(int)p.where.y][(int)p.where.x] = 0;
 }
